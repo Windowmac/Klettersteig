@@ -25,8 +25,25 @@ const createUser = (userName, password) => {
     });
   };
 
-const sunsetAndRise = () => {
+
+// API courtesy of https://sunrise-sunset.org/
+const sunsetAndRise = (lat, long) => {
+  fetch('https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400', {
+  method: 'GET', //GET is the default.
+  credentials: 'same-origin', // include, *same-origin, omit
+  redirect: 'follow', // manual, *follow, error
+})
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  });
   console.log(`Sunset time is ${time}. Sunrise time is ${time}`)
 };
+// Convert UTC to user's time zone?
+// Example: https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400
+
+
 
 submitBtn.addEventListener('click', createUser(userName, password));
