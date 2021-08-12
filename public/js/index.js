@@ -25,10 +25,11 @@
 //     });
 //   };
 
-const UseRL = `https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400`
+const testLat = '45.52345';
+const testLong = '-122.67621';
 // API courtesy of https://sunrise-sunset.org/
 const sunsetAndRise = () => {
-  fetch(UseRL)
+  fetch(`https://api.sunrise-sunset.org/json?lat=${testLat}lng=${testLong}`)
   .then(function (response) {
     if (response.status === 404) {
       // document.location.replace(redirectUrl);
@@ -39,6 +40,8 @@ const sunsetAndRise = () => {
   }})
   .then(function (data) {
     console.log(data);
+    console.log(`Sunrise for this location is at: ${data.results.sunrise}`);
+    console.log(`Sunset for this location is at: ${data.results.sunset}`);
   });
   // console.log(`Sunset time is ${time}. Sunrise time is ${time}`)
 };
