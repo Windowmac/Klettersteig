@@ -32,7 +32,6 @@ const sunsetAndRise = () => {
   fetch(`https://api.sunrise-sunset.org/json?lat=${testLat}lng=${testLong}`)
   .then(function (response) {
     if (response.status === 404) {
-      // document.location.replace(redirectUrl);
       console.log("Oops! Please try again.")
     } else {
       data = response.json();
@@ -40,8 +39,20 @@ const sunsetAndRise = () => {
   }})
   .then(function (data) {
     console.log(data);
-    console.log(`Sunrise for this location is at: ${data.results.sunrise}`);
-    console.log(`Sunset for this location is at: ${data.results.sunset}`);
+    const lat = data.results.sunrise;
+    const long = data.results.sunset;
+    // new Date(lat).toISOString();
+    // new Date(long).toISOString();
+    console.log(`Sunrise for this location is at: ${lat}`);
+    // console.log(`Sunrise for this location is at: ${data.results.sunrise}`);
+    console.log(`Sunset for this location is at: ${long}`);
+    // console.log(`Sunset for this location is at: ${data.results.sunset}`);
+
+    const localLat = new Date(lat);
+    const LocalLong = new Date(long);
+    console.log(`Local sunrise time for this location is: ${localLat.toString()}`);
+    console.log(`Local sunset time for this location is: ${LocalLong.toString()}`);
+    // console.log(date.toUTCString());
   });
   // console.log(`Sunset time is ${time}. Sunrise time is ${time}`)
 };
