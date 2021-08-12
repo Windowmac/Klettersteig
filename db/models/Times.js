@@ -43,7 +43,7 @@ Times.init({
     },
   },
 },
-{ sequelize, modelName: 'times' },
+{ sequelize, modelName: 'times', },
 );
 
 module.exports = Times;

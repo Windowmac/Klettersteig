@@ -10,6 +10,10 @@ Hike.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     discovered_by: {
       type: DataTypes.INTEGER,
       references: {
@@ -26,11 +30,11 @@ Hike.init(
         type: DataTypes.DECIMAL,
     },
     latitude: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
       allowNull: false,
     },
     longitude: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
       allowNull: false,
     },
   },
