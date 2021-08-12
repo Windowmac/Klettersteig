@@ -25,4 +25,8 @@ const createUser = (userName, password) => {
     });
   };
 
+const sunsetAndRise = () => {
+  console.log(`Sunset time is ${time}. Sunrise time is ${time}`)
+};
+
 submitBtn.addEventListener('click', createUser(userName, password));
