@@ -37,6 +37,7 @@ router.get('/hikes/:id', async (req, res) => {
 router.get('/hikes/:id/times', async (req, res) => {
   const times = await Times.findOne({ where: { hike_id: req.params.id }}, { include: [{ model: User }]}).catch(err => 
     {res.status(500).json('error finding hike :(')});
+  res.status(200).json(times);
 })
 
 module.exports = router;
