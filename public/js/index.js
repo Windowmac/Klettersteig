@@ -1,6 +1,12 @@
 const userName = document.getElementById('user_name');
 const password = document.getElementById('password');
 const submitBtn = document.getElementById('submit_btn');
+const express = require('express');
+const router = require('./routes');
+const sequelize = require('./db/connection');
+const exphbs = require('express-handlebars');
+const { urlencoded } = require('express');
+const hbs = exphbs.create({});
 
 
 submitBtn.addEventListener('click', (event) => {
