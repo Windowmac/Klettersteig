@@ -48,15 +48,25 @@ const sunsetAndRise = () => {
     console.log(`Sunset for this location is at: ${long}`);
     // console.log(`Sunset for this location is at: ${data.results.sunset}`);
 
+    let date = new Date(Date.UTC(2021, 5, 28, 3, 0, 0));
+    let date = new Date(Date.UTC(lat));
+    console.log('Date in India: ' + date);
+    let usDate = date.toLocaleString("en-US", {timeZone: "America/New_York"});
+    console.log('Date in USA: ' + usDate);
+
     const localLat = new Date(lat);
-    const LocalLong = new Date(long);
-    console.log(`Local sunrise time for this location is: ${localLat.toString()}`);
-    console.log(`Local sunset time for this location is: ${LocalLong.toString()}`);
+    const localLong = new Date(long);
+    const UTCtime = 'Tue, 21 Apr 2020 09:20:30 GMT';
+    const testDate = new Date(UTCtime);
+    console.log(`UTC test time is \n${UTCtime}`);
+    console.log(`Test date is: \n${testDate.toString()}`);
+    console.log(`Local sunrise time for your location is: \n${localLat.toString()}`);
+    console.log(`Local sunset time for your location is: \n${localLong.toString()}`);
     // console.log(date.toUTCString());
   });
   // console.log(`Sunset time is ${time}. Sunrise time is ${time}`)
 };
-// Convert UTC to user's time zone?
+// Convert UTC to user's time zone? Or to that area's time zone?
 // Example: https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400
 sunsetAndRise();
 
