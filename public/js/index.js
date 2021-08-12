@@ -33,20 +33,3 @@ submitBtn.addEventListener('click', (event) => {
   }
 });
 
-const getApiInfo = async () => {
-  const apiInfo = await fetch('https://ridb.recreation.gov/api/v1/activities?limit=50&offset=0', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        apikey: 'a46a852b-c314-48ad-ad97-a1c064891d4b'
-      },
-    })
-    .then((res) => res.json())
-    .then((response) => {
-      return response;
-    });
-
-  console.log(apiInfo);
-};
-
-getApiInfo();
