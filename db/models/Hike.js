@@ -22,6 +22,9 @@ Hike.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    length: {
+        type: DataTypes.DECIMAL,
+    },
     latitude: {
       type: DataTypes.INTEGER,
       allowNull: false,
