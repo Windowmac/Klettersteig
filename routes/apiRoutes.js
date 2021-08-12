@@ -1,5 +1,5 @@
 const express = require('express');
-const User = require('../db/models/User');
+const { User, Hike, Times } = require('../db/models');
 
 const router = express.Router();
 
@@ -19,5 +19,15 @@ router.get('/users/sign-in/:username', async (req, res) => {
   console.log('validated variable is: ', validated);
   res.json(validated);
 });
+
+router.get('/hikes', async (req, res) => {
+  const allHikes = await Hike.findAll();
+  res.json(allHikes);
+});
+
+router.get('/hikes/:id', async (req, res) => {
+  const hike = await Hike.findById(req.params.id).catch(err => {);
+
+})
 
 module.exports = router;
