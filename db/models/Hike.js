@@ -11,8 +11,8 @@ Hike.init(
       autoIncrement: true,
     },
     name: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     discovered_by: {
       type: DataTypes.INTEGER,
@@ -27,7 +27,7 @@ Hike.init(
       allowNull: true,
     },
     length: {
-        type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL,
     },
     latitude: {
       type: DataTypes.DECIMAL,
@@ -38,7 +38,7 @@ Hike.init(
       allowNull: false,
     },
   },
-  { sequelize, modelName: 'hike', freezeTableName: true },
+  { sequelize, modelName: 'hike', freezeTableName: true, timestamps: false }
 );
 
 module.exports = Hike;
