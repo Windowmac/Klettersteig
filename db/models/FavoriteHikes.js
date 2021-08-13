@@ -1,31 +1,15 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../connection');
 
-class Times extends Model {}
+class FavoriteHikes extends Model {}
 
-Times.init(
+FavoriteHikes.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      allowNull: false,
       autoIncrement: true,
-    },
-    hours: {
-      type: DataTypes.INTEGER,
-    },
-    minutes: {
-      type: DataTypes.INTEGER,
-      validate: {
-        max: 60,
-        min: 0,
-      },
-    },
-    seconds: {
-      type: DataTypes.INTEGER,
-      validate: {
-        max: 60,
-        min: 0,
-      },
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -44,7 +28,7 @@ Times.init(
       },
     },
   },
-  { sequelize, modelName: 'times', timestamps: false }
+  { sequelize, modelName: 'favorite_hikes', timestamps: false }
 );
 
-module.exports = Times;
+module.exports = FavoriteHikes;

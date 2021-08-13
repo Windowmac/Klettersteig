@@ -8,7 +8,6 @@ const exphbs = require('express-handlebars');
 const { urlencoded } = require('express');
 const hbs = exphbs.create({});
 
-
 submitBtn.addEventListener('click', (event) => {
   event.preventDefault();
   console.log(password.value);
@@ -38,4 +37,3 @@ submitBtn.addEventListener('click', (event) => {
     throw new Error(err);
   }
 });
-
