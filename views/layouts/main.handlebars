@@ -1,46 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>homepage</title>
-</head>
-<body>
-    {{{ body }}}
-<script type="text/javascript">
+  </head>
+  <body>
 
-const userName = document.getElementById('user_name');
-const password = document.getElementById('password');
-const submitBtn = document.getElementById('submit_btn');
+    {{{body}}}
+  <script type="text/javascript" src="../../js/index.js"></script>
 
-
-submitBtn.addEventListener('click', event => {
-    event.preventDefault();
-    console.log(password.value);
-    console.log(userName.value);
-    const body = {};
-  if (userName.value.length && password.value.length) {
-
-    body.user_name = userName.value;
-    body.password = password.value;
-  } else {
-    window.alert('enter username and password');
-    return;
-  }
-
-  fetch('/api/users', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(body),
-  }).then((res) => 
-    res.json()).then((result) => {
-      console.log(result);
-    });
-  });
-
-</script>
-</body>
+  </body>
 </html>

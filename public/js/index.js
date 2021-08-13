@@ -1,52 +1,41 @@
 const userName = document.getElementById('user_name');
 const password = document.getElementById('password');
 const submitBtn = document.getElementById('submit_btn');
+const express = require('express');
+const router = require('./routes');
+const sequelize = require('./db/connection');
+const exphbs = require('express-handlebars');
+const { urlencoded } = require('express');
+const hbs = exphbs.create({});
 
-const createUser = (userName, password) => {
-  console.log(userName);
-  if (userName.length && password.length) {
-    const body = {};
-    body.user_name = userName.value;
+
+submitBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  console.log(password.value);
+  console.log(userName.value);
+  const body = {};
+  if (userName.value.length && password.value.length) {
+    body.username = userName.value;
     body.password = password.value;
   } else {
     window.alert('enter username and password');
     return;
   }
 
-  fetch('/api/users', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(body),
-  }).then((res) => 
-    res.json()).then((result) => {
-      console.log(result);
-    });
-  };
-
-submitBtn.addEventListener('click', createUser(userName, password));
-
-var map;
-
-// call the outdooractive maps api initialization method with a callback function
-oa.api.maps(
-    function (oamaps, gm) {
-
-	// set map center, zoom level, map types and more
-	var config = {
-            center : { lat: 47.54687, lng: 10.2928 },
-            zoom : 10,
-
-            mapInit : {
-                basemap: "osm",
-                style:   "winter",
-                overlay: "slope"
-            }
-
-        };
-
-	// instatiate a new outdooractive map
-	// params: dom id of map canvas div, configuration object
-	map = oamaps.map( "map_canvas", config );
+  try {
+    fetch('/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
+  } catch (err) {
+    throw new Error(err);
+  }
 });
+
