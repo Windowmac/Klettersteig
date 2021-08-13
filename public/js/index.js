@@ -26,3 +26,27 @@ const createUser = (userName, password) => {
   };
 
 submitBtn.addEventListener('click', createUser(userName, password));
+
+var map;
+
+// call the outdooractive maps api initialization method with a callback function
+oa.api.maps(
+    function (oamaps, gm) {
+
+	// set map center, zoom level, map types and more
+	var config = {
+            center : { lat: 47.54687, lng: 10.2928 },
+            zoom : 10,
+
+            mapInit : {
+                basemap: "osm",
+                style:   "winter",
+                overlay: "slope"
+            }
+
+        };
+
+	// instatiate a new outdooractive map
+	// params: dom id of map canvas div, configuration object
+	map = oamaps.map( "map_canvas", config );
+});
