@@ -92,8 +92,6 @@ const sunsetAndRise = () => {
 // Example: https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400
 sunsetAndRise();
 
-// Map generator API
-
 // Latitude and longitude API courtesy of 
 const latLongFinder = () => {
   fetch(`https://api.sunrise-sunset.org/json?lat=${testLat}lng=${testLong}`)
@@ -110,7 +108,7 @@ const latLongFinder = () => {
 };
 latLongFinder();
 
-// Map generator API courtesy of 
+// Map generator API courtesy of https://openlayers.org/
 const mapGenerator = () => {
   fetch(`https://api.sunrise-sunset.org/json?lat=${testLat}lng=${testLong}`)
   .then(function (response) {
@@ -125,3 +123,35 @@ const mapGenerator = () => {
   });
 };
 mapGenerator();
+
+
+const map = new ol.Map({
+  target: 'map',
+  layers: [
+    new ol.layer.Tile({
+      source: new ol.source.OSM()
+    })
+  ],
+  view: new ol.View({
+    center: ol.proj.fromLonLat([37.41, 8.82]),
+    zoom: 4
+  })
+});
+
+const Handlebars = require('handlebars');
+
+const source = "<p>Hello, my name is {{name}}. I am from {{hometown}}. I have " +
+    "{{kids.length}} kids:</p>" +
+    "<ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}</ul>";
+const template = Handlebars.compile(source);
+
+const data = { "name": "Alan", "hometown": "Somewhere, TX",
+    "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}]};
+const result = template(data);
+
+const fs = require('fs');
+    fs.writeFile("test.html", result, function(err) {
+    if(err) {
+        return console.log(err);
+    }
+});

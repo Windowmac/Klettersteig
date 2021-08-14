@@ -1,36 +1,37 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kletterstieg</title>
-<!-- materialize css cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-<!-- jquery cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- materialize js cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-<!-- materialize icons cdn -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-<!-- map generator API -->
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/build/ol.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/css/ol.css">
 
-    <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <nav>
         <div class="nav-wrapper">
           <a href="#" class="brand-logo">Kletterstieg!!</a>
-          <!-- <i class="center material-icons prefix">hiking</i> -->
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="material-icons brand-logo center font-size:30px prefix">hiking</li>
             <li><a href="#login" class="modal-trigger">Login</a></li>
             <li><a href="#register" class="modal-trigger">Create account</a></li>
             <li><a href="collapsible.html">Contact</a></li>
+
             <div id="map" class="map"></div>
+            <style>
+                .map {
+                  height: 400px;
+                  width: 100%;
+                }
+              </style>
+
           </ul>
         </div>
       </nav>
@@ -39,7 +40,42 @@
   <body class="red lighten-3">
 
     {{{body}}}
-  <script type="text/javascript" src="../../public/js/index.js"></script>
+  <script type="text/javascript" src="../public/test.html"></script>
 
+  </body>
+</html> -->
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/css/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/build/ol.js"></script>
+    <title>OpenLayers example</title>
+  </head>
+  <body>
+    <h2>My Map</h2>
+    <div id="map" class="map"></div>
+    <script type="text/javascript">
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([37.41, 8.82]),
+          zoom: 4
+        })
+      });
+    </script>
   </body>
 </html>
