@@ -110,7 +110,7 @@ latLongFinder();
 
 // Map generator API courtesy of https://openlayers.org/
 const mapGenerator = () => {
-  fetch(`https://api.sunrise-sunset.org/json?lat=${testLat}lng=${testLong}`)
+  fetch(`http://dev.virtualearth.net/REST/v1/Locations?query=${locationQuery}&key=ApHLq6AdBn19nzxj0QMLkB3xlzKtOGaaq4IfWgmnyXQ2g5She2mdmS-mHBkfudks`)
   .then(function (response) {
     if (response.status === 404) {
       console.log("Oops! Please try again.")
@@ -123,7 +123,6 @@ const mapGenerator = () => {
   });
 };
 mapGenerator();
-
 
 const map = new ol.Map({
   target: 'map',
