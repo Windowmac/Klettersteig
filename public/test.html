@@ -1,52 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kletterstieg</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/build/ol.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/css/ol.css">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Kletterstieg!!</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="material-icons brand-logo center font-size:30px prefix">hiking</li>
-            <li><a href="#login" class="modal-trigger">Login</a></li>
-            <li><a href="#register" class="modal-trigger">Create account</a></li>
-            <li><a href="collapsible.html">Contact</a></li>
-
-            <div id="map" class="map"></div>
-            <style>
-                .map {
-                  height: 400px;
-                  width: 100%;
-                }
-              </style>
-
-          </ul>
-        </div>
-      </nav>
-
-</head>
-  <body class="red lighten-3">
-
-    {{{body}}}
-  <script type="text/javascript" src="../public/test.html"></script>
-
-  </body>
-</html> -->
-
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -64,70 +15,8 @@
     <h2>My Map</h2>
     <div id="map" class="map"></div>
 
+    
 
-
-    <script type="text/javascript">
-      var map = new ol.Map({
-        target: 'map',
-        layers: [
-          new ol.layer.Tile({
-            source: new ol.source.OSM()
-          })
-        ],
-        view: new ol.View({
-          center: ol.proj.fromLonLat([37.41, 8.82]),
-          zoom: 4
-        })
-      });
-
-
-      
     </script>
   </body>
 </html>
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Reprojection with EPSG.io Search</title>
-    <!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
-    <script src="https://unpkg.com/elm-pep"></script>
-    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
-    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL,TextDecoder,Number.isInteger"></script>
-    <style>
-      .map {
-        width: 100%;
-        height:400px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="map" class="map"></div>
-    <form class="form-inline">
-      <label for="epsg-query">Search projection:&nbsp</label>
-      <input type="text" id="epsg-query" placeholder="4326, 27700, 3031, US National Atlas, Swiss, France, ..." class="form-control" size="50" />
-      <button id="epsg-search" class="btn">Search</button>
-      <span id="epsg-result"></span>
-    </form>
-    <form class="form-inline">
-      <label for="render-edges">
-        Render reprojection edges:&nbsp;
-        <input type="checkbox" id="render-edges" />
-      </label>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <label for="show-tiles">
-        Show tile coordinates:&nbsp;
-        <input type="checkbox" id="show-tiles" />
-      </label>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <label for="show-graticule">
-        Show graticule:&nbsp;
-        <input type="checkbox" id="show-graticule" />
-      </label>
-    </form>
-    <script src="main.js"></script>
-  </body>
-</html> -->
