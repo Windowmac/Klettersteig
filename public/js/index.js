@@ -48,7 +48,7 @@ function closeForm() {
 
 const testLat = '45.52345';
 const testLong = '-122.67621';
-// API courtesy of https://sunrise-sunset.org/
+// Sunrise/sunset API courtesy of https://sunrise-sunset.org/
 const sunsetAndRise = () => {
   fetch(`https://api.sunrise-sunset.org/json?lat=${testLat}lng=${testLong}`)
   .then(function (response) {
@@ -91,3 +91,5 @@ const sunsetAndRise = () => {
 // Allow user to enter their preferred day to call from? API can take another parameter
 // Example: https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400
 sunsetAndRise();
+
+// Map generator API
