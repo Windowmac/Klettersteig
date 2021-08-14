@@ -1,13 +1,78 @@
-    <form method="post">
-        <ul>
-         <li>
-           <label for="user_name">User name:</label>
-           <input type="text" id="user_name" name="user_name">
-         </li>
-         <li>
-           <label for="password">password:</label>
-           <input type="text" id="password" name="password">
-         </li>
-        </ul>
-        <input type="submit" id="submit_btn" value="Submit">
-    </form>
+<!-- login popup -->
+    <div class="modal" id="login">
+      <h5 class="modal-close">&#10005;</h5>
+      <div class="modal-content center">
+        <h4>Login Form</h4><br>
+        <form action="#">
+
+          <div class="input-field">
+            <i class="material-icons prefix">person</i>
+            <input type="text" id="username">
+            <label for="username">Username</label>
+          </div><br>
+
+          <div class="input-field">
+            <i class="material-icons prefix">lock</i>
+            <input type="password" id="pass">
+            <label for="pass">Password</label>
+          </div><br>
+
+          <div class="left">
+            <input type="checkbox" id="check">
+            <label for="check">Remember Me</label>
+          </div><br>
+          <input type="submit" value="Login" class="btn btn-large">
+        </form>  
+      </div>  
+    </div>
+
+<!-- create account popup -->
+    <div class="modal" id="register">
+      <h5 class="modal-close">&#10005;</h5>
+      <div class="modal-content center">
+        <h4>Register Form</h4><br>
+        <form action="#">
+
+          <div class="input-field">
+            <i class="material-icons prefix">person</i>
+            <input type="text" id="firstName">
+            <label for="username">First Name</label>
+          </div><br>
+          
+          <div class="input-field">
+            <i class="material-icons prefix">person</i>
+            <input type="text" id="lastName">
+            <label for="lastName">Last Name</label>
+          </div><br>          
+
+          <div class="input-field">
+            <i class="material-icons prefix">hiking</i>
+            <input type="text" id="username">
+            <label for="username">Username</label>
+          </div><br>
+
+          <div class="input-field">
+            <i class="material-icons prefix">lock</i>
+            <input type="password" id="pass">
+            <label for="pass">Password</label>
+          </div><br>
+
+          <div class="input-field">
+            <i class="material-icons prefix">email</i>
+            <input type="text" id="email">
+            <label for="email">Email</label>
+          </div><br>
+
+          <input type="submit" value="register" class="btn btn-large">
+
+        </form>  
+      </div>  
+    </div>
+
+<!-- materialize modal script -->
+    <script>
+        $(document).ready(function(){
+          $('.modal').modal();
+        });
+    </script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>

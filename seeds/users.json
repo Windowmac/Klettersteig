@@ -1,0 +1,18 @@
+[
+    { 
+        "username": "superman",
+        "password": "supermanRules"
+    },
+    { 
+        "username": "spiderman",
+        "password": "spidermanRules"
+    },
+    { 
+        "username": "batman",
+        "password": "batmanRules"
+    },
+    {
+        "username": "aquaman",
+        "password": "aquamanRules"
+    }
+]

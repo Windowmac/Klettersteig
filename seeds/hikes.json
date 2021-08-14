@@ -1,0 +1,34 @@
+[
+    {
+        "name": "multnomah hikes",
+        "discovered_by": "1",
+        "description": "the summit is cool!",
+        "length": "3.0",
+        "latitude": "14.7",
+        "longitude": "11.11"
+    },
+    {
+        "name": "cascadia hikes",
+        "discovered_by": "2",
+        "description": "the summit is mild!",
+        "length": "3.0",
+        "latitude": "1.7",
+        "longitude": "1.1"
+    },
+    {
+        "name": "multnomah climbing",
+        "discovered_by": "3",
+        "description": "the summit is hot!",
+        "length": "4.0",
+        "latitude": "24.7",
+        "longitude": "7.11"
+    },
+    {
+        "name": "multnomah trail",
+        "discovered_by": "4",
+        "description": "the summit is present!",
+        "length": "1.0",
+        "latitude": "33.3",
+        "longitude": "3.33"
+    }
+]
