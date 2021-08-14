@@ -93,3 +93,35 @@ const sunsetAndRise = () => {
 sunsetAndRise();
 
 // Map generator API
+
+// Latitude and longitude API courtesy of 
+const latLongFinder = () => {
+  fetch(`https://api.sunrise-sunset.org/json?lat=${testLat}lng=${testLong}`)
+  .then(function (response) {
+    if (response.status === 404) {
+      console.log("Oops! Please try again.")
+    } else {
+      data = response.json();
+      return data;
+  }})
+  .then(function (data) {
+    console.log(data);
+  });
+};
+latLongFinder();
+
+// Map generator API courtesy of 
+const mapGenerator = () => {
+  fetch(`https://api.sunrise-sunset.org/json?lat=${testLat}lng=${testLong}`)
+  .then(function (response) {
+    if (response.status === 404) {
+      console.log("Oops! Please try again.")
+    } else {
+      data = response.json();
+      return data;
+  }})
+  .then(function (data) {
+    console.log(data);
+  });
+};
+mapGenerator();
