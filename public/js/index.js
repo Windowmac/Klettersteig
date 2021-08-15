@@ -59,10 +59,10 @@ const buildMap = (westBorder, southBorder, eastBorder, northBorder) => {
   mapEl.src= `https://www.openstreetmap.org/export/embed.html?bbox=${westBorder}%2C${southBorder}%2C${eastBorder}%2C${northBorder}&amp;layer=mapnik`;
   mapEl.style= "border: 1px, solid, black";
 
+  console.log('made it here!');
   document.body.appendChild(mapEl);
 
 }
 
-  // const map = <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-123.15220643766226%2C45.34718457473261%2C-122.2691803146154%2C45.667670951364165&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=11/45.5077/-122.7107">View Larger Map</a></small>
-
 buildMap(-123.1522, 45.3471, -122.2691, 45.6676);
+
