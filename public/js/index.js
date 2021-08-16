@@ -48,7 +48,7 @@ const submitBtn = document.getElementById('submit_btn');
 
 const testLat = '45.52345';
 const testLong = '-122.67621';
-// Sunrise/sunset API courtesy of https://sunrise-sunset.org/
+// Sunrise/sunset API courtesy of https://sunrise-sunset.org/api
 const sunsetAndRise = () => {
   fetch(`https://api.sunrise-sunset.org/json?lat=${testLat}lng=${testLong}`)
   .then(function (response) {
