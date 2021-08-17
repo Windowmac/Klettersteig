@@ -1,6 +1,6 @@
 const userName = document.getElementById('user_name');
 const password = document.getElementById('password');
-const submitBtn = document.getElementById('submit_btn');
+const submitBtn = document.getElementById('create-btn');
 // const express = require('express');
 // const router = require('./routes');
 // const sequelize = require('./db/connection');
@@ -45,3 +45,24 @@ function openForm() {
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
+
+
+
+const buildMap = (westBorder, southBorder, eastBorder, northBorder) => {
+  const mapEl = document.createElement('iframe');
+  mapEl.width = "425";
+  mapEl.height = "350";
+  mapEl.frameborder = "0";
+  mapEl.scrolling = "no";
+  mapEl.marginheight= "0";
+  mapEl.marginwidth= "0";
+  mapEl.src= `https://www.openstreetmap.org/export/embed.html?bbox=${westBorder}%2C${southBorder}%2C${eastBorder}%2C${northBorder}&amp;layer=mapnik`;
+  mapEl.style= "border: 1px, solid, black";
+
+  console.log('made it here!');
+  document.body.appendChild(mapEl);
+
+}
+
+buildMap(-123.1522, 45.3471, -122.2691, 45.6676);
+

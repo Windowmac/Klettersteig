@@ -6,9 +6,9 @@ router.get('/', (req, res) => {
   res.render('sign-in');
 });
 
-router.get('/:username', (req, res) => {
-  res.render('landing-page')
-})
+// router.get('/:username', (req, res) => {
+//   res.render('landing-page')
+// })
 
 
 module.exports = router;
