@@ -14,5 +14,9 @@
     {
         "username": "aquaman",
         "password": "aquamanRules"
+    },
+    {
+    "username": "me", 
+    "password": "meme"
     }
 ]
