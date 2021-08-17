@@ -63,7 +63,7 @@ const buildMap = (westBorder, southBorder, eastBorder, northBorder) => {
 
 buildMap(-123.1522, 45.3471, -122.2691, 45.6676);
 
-
+// -------------------------------- Sunrise/set API --------------------------------
 
 const testLat = '45.52345';
 const testLong = '-122.67621';
@@ -78,25 +78,27 @@ const sunsetAndRise = () => {
       return data;
   }})
   .then(function (data) {
-    console.log(data);
+    // console.log(data);
     const lat = data.results.sunrise;
     const long = data.results.sunset;
 
-    let jsonStr = JSON.stringify({lat: new Date()});   
-    console.log(jsonStr);
+    // let jsonStr = JSON.stringify({lat: new Date()});   
+    // console.log(jsonStr);
 
     console.log(`Sunrise for this location is at: \n${lat}`);
     console.log(`Sunset for this location is at: \n${long}`);
-
-    const dt = new Date(lat);
-    console.log(dt.toString());
   });
   // console.log(`Sunset time is ${time}. Sunrise time is ${time}`)
 };
 // Example: https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400
 sunsetAndRise();
 
-// Latitude and longitude API courtesy of 
+// -------------------------------- Lat/Long Converter --------------------------------
+
+let sunriseButton = document.getElementById("sunriseBtn");
+let latText = document.getElementById("latitude");
+let longText = document.getElementById("longitude");
+
 const latLongFinder = () => {
   fetch(`https://api.sunrise-sunset.org/json?lat=${testLat}lng=${testLong}`)
   .then(function (response) {
@@ -110,16 +112,22 @@ const latLongFinder = () => {
     console.log(data);
   });
 };
-// latLongFinder();
+latLongFinder();
 
-// function codeAddress() {
-//   const address = document.getElementById("address").value;
-//   const geocoder = new google.maps.Geocoder();
+sunriseButton.addEventListener("click", function() {
+  
 
-//   geocoder.geocode( {'address': address}, function(results, status) {
-//     const location = results[0].geometry.location;
-//     // alert('LAT: ' + location.lat() + ' LANG: ' + location.lng());
-//     console.log('LAT: ' + location.lat() + ' LANG: ' + location.lng());
-//   });
-// };
-// google.maps.event.addDomListener(window, 'load', codeAddress);
+  navigator.geolocation.getCurrentPosition(function(position) {
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+
+    latText.innerText = lat.toFixed(2);
+    longText.innerText = long.toFixed(2);
+    console.log(lat.toFixed(2));
+    console.log(long.toFixed(2));
+  });
+}
+
+
+
+);
