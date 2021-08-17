@@ -1,6 +1,7 @@
 const userName = document.getElementById('user_name');
 const password = document.getElementById('password');
-const submitBtn = document.getElementById('create-btn');
+const createBtn = document.getElementById('create-btn');
+const loginBtn = document.getElementById('loginBtn');
 // const express = require('express');
 // const router = require('./routes');
 // const sequelize = require('./db/connection');
@@ -10,7 +11,7 @@ const submitBtn = document.getElementById('create-btn');
 
 createBtn.addEventListener('click', (event) => {
   event.preventDefault();
-
+console.log('createBtn clicked');
   let body = {};
   console.log(password.value);
   console.log(userName.value);
@@ -33,18 +34,20 @@ createBtn.addEventListener('click', (event) => {
     })
       .then((res) => res.json())
       .then((result) => {
+        window.location.href="file:///C:/Users/email/Homework/Klettersteig-TeamProject-HikingApp/views/layouts/index.html";
         console.log(result);
       });
   } catch (err) {
     throw new Error(err);
   }
+  
 });
 
 loginBtn.addEventListener('click', (event) => {
   event.preventDefault();
-
+  console.log('loginBtn clicked');
   let body = {};
-  if (userName.value && password.value) {
+  if (userName.value.length && password.value.length) {
     body.username = userName.value;
     body.password = password.value;
 
@@ -62,6 +65,7 @@ loginBtn.addEventListener('click', (event) => {
     })
     .then((res) => res.json())
     .then((result) => {
+      window.location.href="../../view/landing-page.html";
       console.log(result);
     });
   } catch (err) {
