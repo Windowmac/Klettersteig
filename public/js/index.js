@@ -8,14 +8,16 @@ const submitBtn = document.getElementById('create-btn');
 // const { urlencoded } = require('express');
 // const hbs = exphbs.create({});
 
-submitBtn.addEventListener('click', (event) => {
+createBtn.addEventListener('click', (event) => {
   event.preventDefault();
+
+  let body = {};
   console.log(password.value);
   console.log(userName.value);
-  const body = {};
   if (userName.value.length && password.value.length) {
     body.username = userName.value;
     body.password = password.value;
+
   } else {
     window.alert('enter username and password');
     return;
@@ -37,6 +39,38 @@ submitBtn.addEventListener('click', (event) => {
     throw new Error(err);
   }
 });
+
+loginBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  let body = {};
+  if (userName.value && password.value) {
+    body.username = userName.value;
+    body.password = password.value;
+
+  } else {
+    window.alert('enter username and password');
+    return;
+  }
+  try {
+    fetch('/api/sign-in', {
+      method: 'GET',
+      headers: {
+        'Content-Type': "application/json",
+      },
+      body: JSON.parse(body),
+    })
+    .then((res) => res.json())
+    .then((result) => {
+      console.log(result);
+    });
+  } catch (err) {
+    throw new Error(err);
+  }
+  console.log(password.value);
+  console.log(userName.value);
+});
+
 
 function openForm() {
   document.getElementById("myForm").style.display = "block";

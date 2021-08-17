@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kletterstieg</title>
+<!-- materialize css cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+<!-- jquery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- materialize js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<!-- materialize icons cdn -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../../public/styles.css">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="file:///C:/Users/email/Homework/Klettersteig-TeamProject-HikingApp/views/layouts/index.html" class="brand-logo">Kletterstieg!!</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="material-icons brand-logo center font-size:30px prefix">hiking</li>
+            <li><a href="file:///C:/Users/email/Homework/Klettersteig-TeamProject-HikingApp/views/layouts/index.html" class="font-size: 50px">Log Out</a></li>
+
+          </ul>
+        </div>
+      </nav>
+
+</head>
+<body class="grey darken-4">
+      <div class="row">
+        <!-- <form class="col s12"> -->
+            <div class="row">
+                <div id="textarea1" class="input-field col s5">
+                    <input type="text" class="validate">
+                    <label for="name">Search</label>
+                </div>
+                <div class="input-field col s5">
+                    <button class="btn waves-effect waves-light" type="submit" id="searchbutton" name="action">Search!<i class="material-icons right">search</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+     </div>
+     <div id="map"><br><br><br>
+     <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2908734.6682857913!2d-121.7890354614166!3d44.6059995756847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1shiking%20trails%20in%20oregon!5e0!3m2!1sen!2sus!4v1628978922827!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+     <div class="row">
+        <div id="card1" class="col s12 m5">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Favorite Hikes</span>
+              <p>PLACE HOLDER</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Links to favorited hikes</a>
+              <a href="#">Links to favorited hikes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="card2" class="col s12 m5">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Suggested Hikes</span>
+              <p>PLACE HOLDER</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Links to possible hikes?</a>
+              <a href="#">Links to possible hikes?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- materialize modal script -->
+    <script>
+        $(document).ready(function(){
+          $('.modal').modal();
+        });
+    </script>
+    <script type="text/javascript" src="../public/js/materialize.min.js"></script>
+</body>
+</html>

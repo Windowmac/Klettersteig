@@ -1,5 +1,7 @@
 body {
     background-image: url("waterfall-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
   a.btn{
@@ -83,4 +85,41 @@ body {
   /* Add some hover effects to buttons */
   .form-container .btn:hover, .open-button:hover {
     opacity: 1;
+  }
+
+  #textarea1 {
+    background-color : #d1d1d1;
+    font-size: 175%;
+    border-radius: 15px;
+    position: relative;
+    left:10px;
+    top:60px;
+  }
+
+  #searchbutton {
+    border-radius: 25px;
+    position: relative;
+    left:0px;
+    top:60px;
+  }
+  
+  #card1 {
+    flex-grow: inherit;
+    border-radius: 25px;
+    position: relative;
+    left:0px;
+    top:88px;
+  }
+
+  #card2 {
+    flex-grow: inherit;
+    border-radius: 25px;
+    position: relative;
+    left:58%;
+    top:-130px;
+  }
+
+  #map {
+    text-align: center;
+    /* bottom: -20px; */
   }
