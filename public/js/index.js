@@ -108,3 +108,7 @@ const sunsetAndRise = (userLat, userLong) => {
     sunsetEl.innerText = long;
   });
 };
+
+// -------------------------------- Favorite Button --------------------------------
+
+const favButton = document.getElementById("favButton");
