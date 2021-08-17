@@ -8,7 +8,7 @@ const submitBtn = document.getElementById('create-btn');
 // const { urlencoded } = require('express');
 // const hbs = exphbs.create({});
 
-createBtn.addEventListener('click', (event) => {
+submitBtn.addEventListener('click', (event) => {
   event.preventDefault();
 
   let body = {};
@@ -99,20 +99,15 @@ buildMap(-123.1522, 45.3471, -122.2691, 45.6676);
 
 // -------------------------------- Lat/Long Converter --------------------------------
 
-let sunriseButton = document.getElementById("sunriseBtn");
-// let latText = document.getElementById("latitude");
-// let longText = document.getElementById("longitude");
-let sunriseEl = document.getElementById("sunrise");
-let sunsetEl = document.getElementById("sunset");
+const sunriseButton = document.getElementById("sunriseBtn");
+const citySearchInput = document.getElementById("city-search");
+const sunriseEl = document.getElementById("sunrise");
+const sunsetEl = document.getElementById("sunset");
 
 sunriseButton.addEventListener("click", function() {
   navigator.geolocation.getCurrentPosition(function(position) {
     let lat = position.coords.latitude;
     let long = position.coords.longitude;
-
-    // latText.innerText = lat.toFixed(2);
-    // longText.innerText = long.toFixed(2);
-
     userLat = lat.toFixed(2);
     userLong = long.toFixed(2);
     console.log(`The coordinates for this location are: ${userLat}, ${userLong}`);
