@@ -66,20 +66,22 @@ buildMap(-123.1522, 45.3471, -122.2691, 45.6676);
 // -------------------------------- Lat/Long Converter --------------------------------
 
 let sunriseButton = document.getElementById("sunriseBtn");
-let latText = document.getElementById("latitude");
-let longText = document.getElementById("longitude");
+// let latText = document.getElementById("latitude");
+// let longText = document.getElementById("longitude");
+let sunriseEl = document.getElementById("sunrise");
+let sunsetEl = document.getElementById("sunset");
 
 sunriseButton.addEventListener("click", function() {
   navigator.geolocation.getCurrentPosition(function(position) {
     let lat = position.coords.latitude;
     let long = position.coords.longitude;
 
-    latText.innerText = lat.toFixed(2);
-    longText.innerText = long.toFixed(2);
-    
+    // latText.innerText = lat.toFixed(2);
+    // longText.innerText = long.toFixed(2);
+
     userLat = lat.toFixed(2);
     userLong = long.toFixed(2);
-    console.log(`The coordinates for this location are ${userLat}, ${userLong}`);
+    console.log(`The coordinates for this location are: ${userLat}, ${userLong}`);
     sunsetAndRise(userLat, userLong);
   });
 });
@@ -91,7 +93,7 @@ const sunsetAndRise = (userLat, userLong) => {
   fetch(`https://api.sunrise-sunset.org/json?lat=${userLat}lng=${userLong}`)
   .then(function (response) {
     if (response.status === 404) {
-      console.log("Oops! Please try again.")
+      console.log("Something went wrong. Please try again.")
     } else {
       data = response.json();
       return data;
@@ -101,5 +103,8 @@ const sunsetAndRise = (userLat, userLong) => {
     const long = data.results.sunset;
     console.log(`Sunrise for this location is at: \n${lat}`);
     console.log(`Sunset for this location is at: \n${long}`);
+
+    sunriseEl.innerText = lat;
+    sunsetEl.innerText = long;
   });
 };
