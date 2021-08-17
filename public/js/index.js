@@ -63,13 +63,39 @@ const buildMap = (westBorder, southBorder, eastBorder, northBorder) => {
 
 buildMap(-123.1522, 45.3471, -122.2691, 45.6676);
 
+// -------------------------------- Lat/Long Converter --------------------------------
+
+let sunriseButton = document.getElementById("sunriseBtn");
+let latText = document.getElementById("latitude");
+let longText = document.getElementById("longitude");
+
+sunriseButton.addEventListener("click", function() {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+
+    latText.innerText = lat.toFixed(2);
+    longText.innerText = long.toFixed(2);
+    // console.log(lat.toFixed(2));
+    // console.log(long.toFixed(2));
+    userLat = lat.toFixed(2);
+    userLong = long.toFixed(2);
+    console.log(userLat);
+    console.log(userLong);
+    sunsetAndRise(userLat, userLong);
+  });
+});
+// console.log(userLat);
+// console.log(userLong);
+
 // -------------------------------- Sunrise/set API --------------------------------
 
 const testLat = '45.52345';
 const testLong = '-122.67621';
+
 // Sunrise/sunset API courtesy of https://sunrise-sunset.org/api
-const sunsetAndRise = () => {
-  fetch(`https://api.sunrise-sunset.org/json?lat=${testLat}lng=${testLong}`)
+const sunsetAndRise = (userLat, userLong) => {
+  fetch(`https://api.sunrise-sunset.org/json?lat=${userLat}lng=${userLong}`)
   .then(function (response) {
     if (response.status === 404) {
       console.log("Oops! Please try again.")
@@ -78,7 +104,6 @@ const sunsetAndRise = () => {
       return data;
   }})
   .then(function (data) {
-    // console.log(data);
     const lat = data.results.sunrise;
     const long = data.results.sunset;
 
@@ -88,46 +113,5 @@ const sunsetAndRise = () => {
     console.log(`Sunrise for this location is at: \n${lat}`);
     console.log(`Sunset for this location is at: \n${long}`);
   });
-  // console.log(`Sunset time is ${time}. Sunrise time is ${time}`)
 };
-// Example: https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400
-sunsetAndRise();
-
-// -------------------------------- Lat/Long Converter --------------------------------
-
-let sunriseButton = document.getElementById("sunriseBtn");
-let latText = document.getElementById("latitude");
-let longText = document.getElementById("longitude");
-
-const latLongFinder = () => {
-  fetch(`https://api.sunrise-sunset.org/json?lat=${testLat}lng=${testLong}`)
-  .then(function (response) {
-    if (response.status === 404) {
-      console.log("Oops! Please try again.")
-    } else {
-      data = response.json();
-      return data;
-  }})
-  .then(function (data) {
-    console.log(data);
-  });
-};
-latLongFinder();
-
-sunriseButton.addEventListener("click", function() {
-  
-
-  navigator.geolocation.getCurrentPosition(function(position) {
-    let lat = position.coords.latitude;
-    let long = position.coords.longitude;
-
-    latText.innerText = lat.toFixed(2);
-    longText.innerText = long.toFixed(2);
-    console.log(lat.toFixed(2));
-    console.log(long.toFixed(2));
-  });
-}
-
-
-
-);
+// sunsetAndRise();
