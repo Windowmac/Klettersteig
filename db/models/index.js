@@ -17,4 +17,13 @@ Hike.belongsToMany(User, {
   },
 });
 
-module.exports = { Hike, User, Times, FavoriteHikes };
+module.exports = {
+  Hike,
+  User,
+  Times,
+  FavoriteHikes
+};
+
+
+
+

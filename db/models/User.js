@@ -11,11 +11,15 @@ User.init(
   {
     username: DataTypes.STRING,
     password: DataTypes.STRING,
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    email: DataTypes.STRING,
   },
   { sequelize, modelName: 'user', freezeTableName: true, timestamps: false }
 );
 
 User.addHook('beforeCreate', async (user) => {
+
   user.password = await bcrypt.hash(user.password, 10);
   return user;
 });
