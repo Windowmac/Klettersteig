@@ -76,22 +76,15 @@ sunriseButton.addEventListener("click", function() {
 
     latText.innerText = lat.toFixed(2);
     longText.innerText = long.toFixed(2);
-    // console.log(lat.toFixed(2));
-    // console.log(long.toFixed(2));
+    
     userLat = lat.toFixed(2);
     userLong = long.toFixed(2);
-    console.log(userLat);
-    console.log(userLong);
+    console.log(`The coordinates for this location are ${userLat}, ${userLong}`);
     sunsetAndRise(userLat, userLong);
   });
 });
-// console.log(userLat);
-// console.log(userLong);
 
 // -------------------------------- Sunrise/set API --------------------------------
-
-const testLat = '45.52345';
-const testLong = '-122.67621';
 
 // Sunrise/sunset API courtesy of https://sunrise-sunset.org/api
 const sunsetAndRise = (userLat, userLong) => {
@@ -106,12 +99,7 @@ const sunsetAndRise = (userLat, userLong) => {
   .then(function (data) {
     const lat = data.results.sunrise;
     const long = data.results.sunset;
-
-    // let jsonStr = JSON.stringify({lat: new Date()});   
-    // console.log(jsonStr);
-
     console.log(`Sunrise for this location is at: \n${lat}`);
     console.log(`Sunset for this location is at: \n${long}`);
   });
 };
-// sunsetAndRise();
