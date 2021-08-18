@@ -1,6 +1,6 @@
 const userName = document.getElementById('user_name');
 const password = document.getElementById('password');
-const submitBtn = document.getElementById('create-btn');
+const createBtn = document.getElementById('create-btn');
 // const express = require('express');
 // const router = require('./routes');
 // const sequelize = require('./db/connection');
@@ -8,7 +8,7 @@ const submitBtn = document.getElementById('create-btn');
 // const { urlencoded } = require('express');
 // const hbs = exphbs.create({});
 
-submitBtn.addEventListener('click', (event) => {
+createBtn.addEventListener('click', (event) => {
   event.preventDefault();
 
   let body = {};
