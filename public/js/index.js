@@ -170,6 +170,12 @@ const sunsetAndRise = (userLat, userLong) => {
 //   console.log(`Favorite hiked added: ${favButton.value}`);
 // });
 
+let favArr = [];
+
 function myFunction(x) {
   x.classList.toggle("fa-thumbs-down");
-}
+  favArr.push(x);
+  console.log("Hike added to favorites!");
+  console.log(favArr);
+  console.log(`There are ${favArr.length} favorite hikes!`);
+};
