@@ -80,20 +80,20 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 };
 
-const buildMap = (westBorder, southBorder, eastBorder, northBorder) => {
-  const mapEl = document.createElement('iframe');
-  mapEl.width = "425";
-  mapEl.height = "350";
-  mapEl.frameborder = "0";
-  mapEl.scrolling = "no";
-  mapEl.marginheight= "0";
-  mapEl.marginwidth= "0";
-  mapEl.src= `https://www.openstreetmap.org/export/embed.html?bbox=${westBorder}%2C${southBorder}%2C${eastBorder}%2C${northBorder}&amp;layer=mapnik`;
-  mapEl.style= "border: 1px, solid, black";
+// const buildMap = (westBorder, southBorder, eastBorder, northBorder) => {
+//   const mapEl = document.createElement('iframe');
+//   mapEl.width = "425";
+//   mapEl.height = "350";
+//   mapEl.frameborder = "0";
+//   mapEl.scrolling = "no";
+//   mapEl.marginheight= "0";
+//   mapEl.marginwidth= "0";
+//   mapEl.src= `https://www.openstreetmap.org/export/embed.html?bbox=${westBorder}%2C${southBorder}%2C${eastBorder}%2C${northBorder}&amp;layer=mapnik`;
+//   mapEl.style= "border: 1px, solid, black";
 
-  console.log('made it here!');
-  document.body.appendChild(mapEl);
-};
+//   console.log('made it here!');
+//   document.body.appendChild(mapEl);
+// };
 
 // buildMap(-123.1522, 45.3471, -122.2691, 45.6676);
 
@@ -104,16 +104,20 @@ const citySearchInput = document.getElementById("city-search");
 const sunriseEl = document.getElementById("sunrise");
 const sunsetEl = document.getElementById("sunset");
 
-sunriseButton.addEventListener("click", function() {
+let userLat = 0;
+let userLon = 0;
+
   navigator.geolocation.getCurrentPosition(function(position) {
-    let lat = position.coords.latitude;
-    let long = position.coords.longitude;
-    userLat = lat.toFixed(2);
-    userLong = long.toFixed(2);
-    console.log(`The coordinates for this location are: ${userLat}, ${userLong}`);
-    sunsetAndRise(userLat, userLong);
-  });
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  userLat = lat.toFixed(2);
+  userLon = lon.toFixed(2);
+  console.log(`The coordinates for this location are: ${userLat}, ${userLon}`);
 });
+
+sunriseButton.addEventListener("click", function() {
+    sunsetAndRise(userLat, userLon);
+  });
 
 // -------------------------------- Sunrise/set API --------------------------------
 
