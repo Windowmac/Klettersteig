@@ -170,12 +170,20 @@ const sunsetAndRise = (userLat, userLong) => {
 //   console.log(`Favorite hiked added: ${favButton.value}`);
 // });
 
-let favArr = [];
+const testFavHike = document.querySelector("#TestFav");
+// const testFavHike = document.querySelector("#TestFav").innerHTML;
+// console.log(`Test hike is ${testFavHike.innerHTML}!`);
 
-function myFunction(x) {
-  x.classList.toggle("fa-thumbs-down");
-  favArr.push(x);
-  console.log("Hike added to favorites!");
-  console.log(favArr);
-  console.log(`There are ${favArr.length} favorite hikes!`);
+const favArr = [];
+
+const addToFavs = () => {
+  testFavHike.classList.toggle("fa-thumbs-down");
+  favArr.push(testFavHike);
+  console.log(`${testFavHike} has been added to favorites!`);
+  localStorage.setItem(favArr, testFavHike.innerHTML);
+  // localStorage.setItem(testFavHike, favArr.innerHTML);
+  console.log(`Favorite array is: ${favArr}`);
+  console.log(`There are ${favArr.length} favorite hikes in the array!`);
+  console.log(`There are ${localStorage.length} favorite hikes in local storage!`);
+  // localStorage.setItem(testFavHike, JSON.stringify(favArr));
 };
