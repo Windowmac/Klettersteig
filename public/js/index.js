@@ -191,3 +191,26 @@ const addToFavs = () => {
   console.log(`There are ${localStorage.length} favorite hikes in local storage!`);
   // localStorage.setItem(testFavHike, JSON.stringify(favArr));
 };
+
+const favedHike = document.querySelector("#fav");
+const addFav = document.querySelector("#addtoFav");
+const removeFav = document.querySelector("#removeFromTav");
+const count = localStorage.getItem("count");
+
+counter.textContent = count;
+
+addFav.addEventListener("click", function() {
+  if (count < 24) {
+    count++;
+    favedHike.textContent = count;
+    localStorage.setItem("count", count);
+  }
+});
+
+removeFav.addEventListener("click", function() {
+  if (count > 0) {
+    count--;
+    favedHike.textContent = count;
+    localStorage.setItem("count", count);
+  }
+});
