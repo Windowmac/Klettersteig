@@ -1,0 +1,26 @@
+<!-- create account popup -->
+    <div class="modal" id="register">
+      <h5 class="modal-close">&#10005;</h5>
+      <div class="modal-content center">
+        <h4>Favorites List</h4><br>
+        <form action="#">
+
+          <div class="input-field">
+            <i class="material-icons prefix">person</i>
+            <input type="text" id="favoritesList">
+            <label for="fav">Favorites</label>
+          </div><br>
+
+          <input type="submit" id="create-btn" value="register" class="btn btn-large">
+
+        </form>  
+      </div>  
+    </div>
+
+<!-- materialize modal script -->
+    <script>
+        $(document).ready(function(){
+          $('.modal').modal();
+        });
+    </script>
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
