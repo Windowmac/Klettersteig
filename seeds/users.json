@@ -1,22 +1,42 @@
 [
-    { 
-        "username": "superman",
-        "password": "supermanRules"
-    },
-    { 
-        "username": "spiderman",
-        "password": "spidermanRules"
-    },
-    { 
-        "username": "batman",
-        "password": "batmanRules"
-    },
-    {
-        "username": "aquaman",
-        "password": "aquamanRules"
-    },
-    {
-    "username": "me", 
-    "password": "meme"
-    }
+  {
+    "username": "superman",
+    "password": "supermanRules",
+    "firstName": "super",
+    "lastName": "man",
+    "email": "superman@example.com",
+    "state": "oregon"
+  },
+  {
+    "username": "spiderman",
+    "password": "spidermanRules",
+    "firstName": "spider",
+    "lastName": "manguy",
+    "email": "spiderman@example.com",
+    "state": "oregon"
+  },
+  {
+    "username": "batman",
+    "password": "batmanRules",
+    "firstName": "bat",
+    "lastName": "mannen",
+    "email": "batman@example.com",
+    "state": "oregon"
+  },
+  {
+    "username": "aquaman",
+    "password": "aquamanRules",
+    "firstName": "aqua",
+    "lastName": "manny",
+    "email": "superman@example.com",
+    "state": "idaho"
+  },
+  {
+    "username": "me",
+    "password": "meme",
+    "firstName": "super",
+    "lastName": "man",
+    "email": "superman@example.com",
+    "state": "wyoming"
+  }
 ]
