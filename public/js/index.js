@@ -95,7 +95,7 @@ const buildMap = (westBorder, southBorder, eastBorder, northBorder) => {
   document.body.appendChild(mapEl);
 };
 
-buildMap(-123.1522, 45.3471, -122.2691, 45.6676);
+// buildMap(-123.1522, 45.3471, -122.2691, 45.6676);
 
 // -------------------------------- Lat/Long Converter --------------------------------
 
@@ -140,32 +140,36 @@ const sunsetAndRise = (userLat, userLong) => {
 // -------------------------------- Favorite Button --------------------------------
 
 // Adapting code from https://github.com/taniarascia/sandbox/tree/master/tab
-const form = document.querySelector('form');
-const ul = document.querySelector('ul');
-const testFav = document.getElementById('testFav');
-const favButton = document.getElementById("favButton");
-const favHikesList = document.querySelector("#favedHikes")
-// let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-const favArr = localStorage.getItem('eachFav');
+// const form = document.querySelector('form');
+// const ul = document.querySelector('ul');
+// const testFav = document.getElementById('testFav');
+// const favButton = document.getElementById("favButton");
+// const favHikesList = document.querySelector("#favedHikes")
+// // let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+// let favArr = localStorage.getItem('eachFav') ? JSON.parse(localStorage.getItem('eachFav')) : [];
 
-localStorage.setItem('eachFav', JSON.stringify(favArr));
-const favorites = JSON.parse(localStorage.getItem('eachFav'));
+// localStorage.setItem('eachFav', JSON.stringify(favArr));
+// const favorites = JSON.parse(localStorage.getItem('eachFav'));
 
-const favListCreator = (text) => {
-  const li = document.createElement("li");
-  li.textContent = text;
-  ul.appendChild(li);
-};
+// const favListCreator = (text) => {
+//   const li = document.createElement("li");
+//   li.textContent = text;
+//   ul.appendChild(li);
+// };
 
-favorites.forEach(i => {
-  favListCreator(i);
-});
+// favorites.forEach(testFav => {
+//   favListCreator(testFav);
+// });
 
-form.addEventListener('submit', () => {
-  favArr.push(favButton.value);
-  // favArr.push(input.value);
-  localStorage.setItem('eachFav', JSON.stringify(favArr));
-  liMaker(favButton.value);
-  favButton.value = "";
-  console.log(`Favorite hiked added: ${favButton.value}`);
-});
+// form.addEventListener('submit', () => {
+//   favArr.push(favButton.value);
+//   // favArr.push(input.value);
+//   localStorage.setItem('eachFav', JSON.stringify(favArr));
+//   liMaker(favButton.value);
+//   favButton.value = "";
+//   console.log(`Favorite hiked added: ${favButton.value}`);
+// });
+
+function myFunction(x) {
+  x.classList.toggle("fa-thumbs-down");
+}

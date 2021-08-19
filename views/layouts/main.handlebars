@@ -18,6 +18,8 @@
 <!-- map generator API -->
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/build/ol.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/css/ol.css">
+<!-- like button icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -51,11 +53,18 @@
     </p>
 
     {{!-- add to favorites function --}}
-    <button id="favButton">
+    {{!-- <button id="favButton">
       Add this hike to favorites
-    </button>
+    </button> --}}
 
-    <p="testFav">Test Favorite Hike</p>
+    {{!-- <p id="testFav">Test Favorite Hike</p> --}}
+    {{!-- <form>
+      <input id="testFav" type="text" placeholder="New">
+    </form> --}}
+
+<!-- Add icon library -->
+<!-- Use an element to toggle between a like/dislike icon -->
+<i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
 
 <!-- materialize modal script -->
   <script>
