@@ -40,21 +40,22 @@
 
     {{{body}}}
 
-{{!-- sunrise and sunset function --}}
+    {{!-- sunrise and sunset function --}}
+    <form action="/search/" method="GET">
+        <input required type="search" name="city-search" placeholder="Enter a city here..."/>
+        <button type="submit" id="sunriseBtn">Search</button>
+    </form>
     <p>
       Sunrise at this location is at <span id="sunrise">0.00</span>,
       sunset is at <span id="sunset">0.00</span>.
     </p>
 
-    <form action="/search/" method="GET">
-        <input required type="search" name="city-search" placeholder="Enter a city here..."/>
-        <button type="submit" id="sunriseBtn">Search</button>
-    </form>
-
     {{!-- add to favorites function --}}
     <button id="favButton">
       Add this hike to favorites
     </button>
+
+    <p="testFav">Test Favorite Hike</p>
 
 <!-- materialize modal script -->
   <script>
