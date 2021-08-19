@@ -14,6 +14,7 @@ User.init(
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     email: DataTypes.STRING,
+    state: DataTypes.STRING,
   },
   { sequelize, modelName: 'user', freezeTableName: true, timestamps: false }
 );
