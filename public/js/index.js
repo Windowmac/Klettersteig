@@ -9,7 +9,7 @@ const loginBtn = document.getElementById('loginBtn');
 // const { urlencoded } = require('express');
 // const hbs = exphbs.create({});
 
-createBtn.addEventListener('click', (event) => {
+submitBtn.addEventListener('click', (event) => {
   event.preventDefault();
 console.log('createBtn clicked');
   let body = {};
@@ -78,13 +78,11 @@ loginBtn.addEventListener('click', (event) => {
 
 function openForm() {
   document.getElementById("myForm").style.display = "block";
-}
+};
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
-}
-
-
+};
 
 const buildMap = (westBorder, southBorder, eastBorder, northBorder) => {
   const mapEl = document.createElement('iframe');
@@ -99,8 +97,51 @@ const buildMap = (westBorder, southBorder, eastBorder, northBorder) => {
 
   console.log('made it here!');
   document.body.appendChild(mapEl);
-
-}
+};
 
 buildMap(-123.1522, 45.3471, -122.2691, 45.6676);
 
+// -------------------------------- Lat/Long Converter --------------------------------
+
+const sunriseButton = document.getElementById("sunriseBtn");
+const citySearchInput = document.getElementById("city-search");
+const sunriseEl = document.getElementById("sunrise");
+const sunsetEl = document.getElementById("sunset");
+
+sunriseButton.addEventListener("click", function() {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    userLat = lat.toFixed(2);
+    userLong = long.toFixed(2);
+    console.log(`The coordinates for this location are: ${userLat}, ${userLong}`);
+    sunsetAndRise(userLat, userLong);
+  });
+});
+
+// -------------------------------- Sunrise/set API --------------------------------
+
+// Sunrise/sunset API courtesy of https://sunrise-sunset.org/api
+const sunsetAndRise = (userLat, userLong) => {
+  fetch(`https://api.sunrise-sunset.org/json?lat=${userLat}lng=${userLong}`)
+  .then(function (response) {
+    if (response.status === 404) {
+      console.log("Something went wrong. Please try again.")
+    } else {
+      data = response.json();
+      return data;
+  }})
+  .then(function (data) {
+    const lat = data.results.sunrise;
+    const long = data.results.sunset;
+    console.log(`Sunrise for this location is at: \n${lat}`);
+    console.log(`Sunset for this location is at: \n${long}`);
+
+    sunriseEl.innerText = lat;
+    sunsetEl.innerText = long;
+  });
+};
+
+// -------------------------------- Favorite Button --------------------------------
+
+const favButton = document.getElementById("favButton");

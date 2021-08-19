@@ -11,6 +11,6 @@ const seedDb = async () => {
     await Hike.bulkCreate(hikeSeeds);
     await Times.bulkCreate(timeSeeds);
     process.exit(0);
-}
+};
 
 seedDb();
