@@ -97,7 +97,7 @@ function closeForm() {
 
 // buildMap(-123.1522, 45.3471, -122.2691, 45.6676);
 
-// -------------------------------- Lat/Long Converter --------------------------------
+// -------------------------------- Lat/long Converter --------------------------------
 
 const sunriseButton = document.getElementById("sunriseBtn");
 const citySearchInput = document.getElementById("city-search");
@@ -181,6 +181,7 @@ const testFavHike = document.querySelector("#TestFav");
 const favArr = [];
 
 const addToFavs = () => {
+  fetch(api/url)
   testFavHike.classList.toggle("fa-thumbs-down");
   favArr.push(testFavHike);
   console.log(`${testFavHike} has been added to favorites!`);
@@ -193,6 +194,18 @@ const addToFavs = () => {
 };
 
 
+// addtoFavs function should fetch this url: "localhost:3030/api/favorite-Hikes" as a POST
+// fetch should include a JSON object that you will define as your body (req.body) (see apiFavoriteHikesRoutes)
+
+// on page load query our db for the favoriteHikes rows, probably only need the name of the hike to be displayed
+// you will likely use a join to get this information
+// user_id will define what hikes they have favorited, hike_id will define the details of that hike (foreign Keys)
+// this should populate in a map() or filter() in your favorites page {{favorites}} in handlebars  
+// look at sequelize for how to implement like button functionality on each hike
+// look into FavoriteHikes.findAll(){where:} and sequelize.findOne({where:})
+// You will add definitions like so ({where: {user_id=1 (get this from session token)}})
+// Hikes.findOne({where: {id: = hike_Id}})
+// Can use dummy tokens/accounts to test with before implementing session tokens
 
 // const favedHike = document.querySelector("#fav");
 // const addFav = document.querySelector("#addtoFav");
