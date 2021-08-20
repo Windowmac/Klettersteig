@@ -31,7 +31,8 @@ router.get('/users/:username/:lat/:lon', async (req, res) => {
 
   res.render('landing-page', {
     userData,
-    mapUrl
+    mapUrl,
+    loggedIn: req.session.loggedIn,
   })
 });
 
