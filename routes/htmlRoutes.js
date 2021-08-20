@@ -19,9 +19,9 @@ router.get('/users/:username/:lat/:lon', async (req, res) => {
     where: {
     username: req.params.username
   },
-  // include: {
-  //   model: FavoriteHikes, model: Times
-  // }
+  include: {
+    model: FavoriteHikes, model: Times
+  }
 }).catch(err => {
     res.status(500).json('unable to find user')
   });
