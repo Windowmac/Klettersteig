@@ -19,10 +19,8 @@
 const addToFavs = () => {
   fetch("localhost:3030/api/favorite-Hikes")
 
-  
-
-
 };
+addToFavs();
 
 // ----------------------------------------------------------------
 
