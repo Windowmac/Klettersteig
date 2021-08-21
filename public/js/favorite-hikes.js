@@ -1,3 +1,5 @@
+const { FavoriteHikes } = require('../db/models');
+
 // fetch should include a JSON object that you will define as your body (req.body) (see apiFavoriteHikesRoutes)
 // req.body.user_id, req.body.hike_id
 
@@ -34,12 +36,17 @@
 //         console.error('Error: ', err);
 //     });
 
+const testUser = {
+    user_id: '9',
+    hike_id: '19',
+};
+
 const addToFavs = () => {
     fetch("http://localhost:3030/api/favorite-hikes", {
         method: "POST",
         // Adding body or contents to send
         body: JSON.stringify({
-            user
+            testUser
             // title: "Hike",
             // body: "Test",
             // user_id: 1
@@ -55,10 +62,10 @@ const addToFavs = () => {
     // Displaying results to console
     .then(json => console.log(json))
     .then(data => {
-        data.map((user) => {
+        data.map((testUser) => {
             console.log(`Data is ${data}`);
-        }}
-    )
+        })
+    })
     .catch(err => {
     console.log('Error: ', error);
     }
@@ -67,11 +74,31 @@ addToFavs();
 
 // hike_id
 // hikes name
-Post.findAll({
-    where: {
-      user_id: 1
+// Post.findAll({
+//     where: {
+//       user_id: 1
+//     }
+//   });
+
+const fineOneHike = await FavoriteHikes.findOne({ 
+        where: { 
+            user_id: 1 
+        } 
+    });
+    if (fineOneHike === null) {
+        console.log('Favorite hike not found!');
+    } else {
+        console.log(fineOneHike instanceof FavoriteHikes); // true
+        console.log(fineOneHike.title); // 'My Title'
     }
-  });
+
+const findAllHikes = async(req, res) {
+    const books = await FavoriteHikes.findAll({
+        attributes: ['title', 'author'],
+    });
+    res.json({ books: books });
+    }
+
 console.log("Your favorite hikes: ");
 
 // ----------------------------------------------------------------
