@@ -57,12 +57,12 @@ const addToFavs = () => {
     .then(data => {
         data.map((user) => {
             console.log(`Data is ${data}`);
-        }
+        }}
     )
     .catch(err => {
     console.log('Error: ', error);
     }
-);
+)};
 addToFavs();
 
 // hike_id
@@ -72,63 +72,26 @@ Post.findAll({
       user_id: 1
     }
   });
-console.log("Your favorite hikes: ")
+console.log("Your favorite hikes: ");
 
 // ----------------------------------------------------------------
 
-// Adapting code from https://github.com/taniarascia/sandbox/tree/master/tab
 // const form = document.querySelector('form');
 // const ul = document.querySelector('ul');
-// const testFav = document.getElementById('testFav');
 // const favButton = document.getElementById("favButton");
-// const favHikesList = document.querySelector("#favedHikes")
-// // let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-// let favArr = localStorage.getItem('eachFav') ? JSON.parse(localStorage.getItem('eachFav')) : [];
-
-// localStorage.setItem('eachFav', JSON.stringify(favArr));
-// const favorites = JSON.parse(localStorage.getItem('eachFav'));
 
 // const favListCreator = (text) => {
 //   const li = document.createElement("li");
 //   li.textContent = text;
 //   ul.appendChild(li);
 // };
-
 // favorites.forEach(testFav => {
 //   favListCreator(testFav);
 // });
-
-// form.addEventListener('submit', () => {
-//   favArr.push(favButton.value);
-//   // favArr.push(input.value);
-//   localStorage.setItem('eachFav', JSON.stringify(favArr));
-//   liMaker(favButton.value);
-//   favButton.value = "";
-//   console.log(`Favorite hiked added: ${favButton.value}`);
-// });
-
-// const testFavHike = document.querySelector("#TestFav");
-// // const testFavHike = document.querySelector("#TestFav").innerHTML;
-// // console.log(`Test hike is ${testFavHike.innerHTML}!`);
-
-// const favArr = [];
 
 // const addToFavs = () => {
 //   fetch(api/url)
 //   testFavHike.classList.toggle("fa-thumbs-down");
 //   favArr.push(testFavHike);
 //   console.log(`${testFavHike} has been added to favorites!`);
-//   localStorage.setItem(favArr, testFavHike.innerHTML);
-//   // localStorage.setItem(testFavHike, favArr.innerHTML);
-//   console.log(`Favorite array is: ${favArr}`);
-//   console.log(`There are ${favArr.length} favorite hikes in the array!`);
-//   console.log(`There are ${localStorage.length} favorite hikes in local storage!`);
-//   // localStorage.setItem(testFavHike, JSON.stringify(favArr));
 // };
-
-// {{!-- add to favorites function --}}
-// {{!-- <button id="favButton">
-//   Add this hike to favorites
-// </button> --}}
-// <div id="TestFav">PCT Hike</div>
-// <i onclick="addToFavs()" class="fa fa-thumbs-up"></i>
