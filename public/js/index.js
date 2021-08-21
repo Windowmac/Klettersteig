@@ -80,7 +80,6 @@ loginBtn.addEventListener('click', (event) => {
   event.preventDefault()
   handleLogin(userName.value, password.value);
 
-
   // let body = {};
   // if (userName.value && password.value) {
   //   body.username = userName.value;
@@ -108,7 +107,6 @@ loginBtn.addEventListener('click', (event) => {
   // console.log(password.value);
   // console.log(userName.value);
 });
-
 
 function openForm() {
   document.getElementById("myForm").style.display = "block";
@@ -141,8 +139,6 @@ const sunriseButton = document.getElementById("sunriseBtn");
 const citySearchInput = document.getElementById("city-search");
 const sunriseEl = document.getElementById("sunrise");
 const sunsetEl = document.getElementById("sunset");
-
-
 
 sunriseButton.addEventListener("click", function() {
     sunsetAndRise(userLat, userLon);
