@@ -83,6 +83,7 @@ const findOneHike = async (req, res) => {
         console.log(`This user's favorite hike for this ID: ${findOneHike.user_id}`);
     }
 };
+findOneHike();
 
 const findAllHikes = async (req, res) => {
     await FavoriteHikes.findOne({ 
@@ -98,6 +99,7 @@ const findAllHikes = async (req, res) => {
         console.log(`This user's favorite hikes: ${findAllHikes.user_id}`);
     }
 };
+findAllHikes();
 
 // ----------------------------------------------------------------
 
