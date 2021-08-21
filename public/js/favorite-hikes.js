@@ -17,16 +17,38 @@
 // req.body.user_id, req.body.hike_id
 
 const addToFavs = () => {
-  fetch("localhost:3030/api/favorite-Hikes")
-
-};
+    fetch("http://localhost:3030/api/favorite-Hikes", {
+        method: "POST",
+        // Adding body or contents to send
+        body: JSON.stringify({
+            title: "Hike",
+            body: "Test",
+            user_id: 1
+        }),
+        // Adding headers to the request
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }}
+    )
+    // Converting to JSON
+    .then(response => response.json())
+    // Displaying results to console
+    .then(json => console.log(json))
+    .catch(err => {
+    // Handle error 
+    console.log('Error: ', error);
+    }
+);
 addToFavs();
 
+// hike_id
+// hikes name
 Post.findAll({
     where: {
       user_id: 1
     }
   });
+console.log("Your favorite hikes: ")
 
 // ----------------------------------------------------------------
 
