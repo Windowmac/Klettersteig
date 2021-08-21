@@ -52,14 +52,11 @@ const addToFavs = () => {
             // user_id: 1
             // hike_id: 1
         }),
-        // Adding headers to the request
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }}
     )
-    // Converting to JSON
     .then(response => response.json())
-    // Displaying results to console
     .then(json => console.log(json))
     .then(data => {
         data.map((testUser) => {
@@ -72,32 +69,35 @@ const addToFavs = () => {
 )};
 addToFavs();
 
-// hike_id
-// hikes name
-// Post.findAll({
-//     where: {
-//       user_id: 1
-//     }
-//   });
-
-const fineOneHike = await FavoriteHikes.findOne({ 
+const findOneHike = async (req, res) => {
+    await FavoriteHikes.findOne({ 
         where: { 
-            user_id: 1 
+            id: user_id,
+            hike: hike_id        
         } 
     });
-    if (fineOneHike === null) {
+    if (findOneHike === null) {
         console.log('Favorite hike not found!');
     } else {
-        console.log(fineOneHike instanceof FavoriteHikes); // true
-        console.log(fineOneHike.title); // 'My Title'
+        console.log(findOneHike instanceof FavoriteHikes); // true
+        console.log(findOneHike.user_id);
     }
+};
 
 const findAllHikes = async(req, res) {
-    const books = await FavoriteHikes.findAll({
-        attributes: ['title', 'author'],
+    await FavoriteHikes.findOne({ 
+        where: { 
+            id: user_id,
+            hike: hike_id
+        } 
     });
-    res.json({ books: books });
+    if (findAllHikes === null) {
+        console.log('Favorite hike not found!');
+    } else {
+        console.log(findAllHikes instanceof FavoriteHikes); // true
+        console.log(findAllHikes.user_id);
     }
+};
 
 console.log("Your favorite hikes: ");
 
