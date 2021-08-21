@@ -16,6 +16,14 @@
 // POST,'localhost:3030/api/favorite-hikes/'
 // req.body.user_id, req.body.hike_id
 
+const addToFavs = () => {
+  fetch("localhost:3030/api/favorite-Hikes")
+
+  
+
+
+};
+
 // ----------------------------------------------------------------
 
 // Adapting code from https://github.com/taniarascia/sandbox/tree/master/tab
