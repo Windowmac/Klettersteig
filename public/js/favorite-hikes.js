@@ -17,7 +17,7 @@
 // req.body.user_id, req.body.hike_id
 
 const addToFavs = () => {
-    fetch("http://localhost:3030/api/favorite-Hikes", {
+    fetch("http://localhost:3030/api/favorite-hikes", {
         method: "POST",
         // Adding body or contents to send
         body: JSON.stringify({
