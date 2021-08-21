@@ -22,6 +22,12 @@ const addToFavs = () => {
 };
 addToFavs();
 
+Post.findAll({
+    where: {
+      user_id: 1
+    }
+  });
+
 // ----------------------------------------------------------------
 
 // Adapting code from https://github.com/taniarascia/sandbox/tree/master/tab
