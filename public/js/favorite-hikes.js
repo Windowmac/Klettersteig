@@ -65,7 +65,7 @@ const addToFavs = () => {
         })
     })
     .catch(err => {
-    console.log('Error: ', error);
+    console.log('Error: ', err);
     }
 )};
 addToFavs();
@@ -80,7 +80,8 @@ const findOneHike = async (req, res) => {
     if (findOneHike === null) {
         console.log('Favorite hike not found!');
     } else {
-        console.log(findOneHike instanceof FavoriteHikes); // true
+        console.log(findOneHike instanceof FavoriteHikes);
+        console.log(`Res is: ${res}`);
         console.log(`This user's favorite hike for this ID: ${findOneHike.user_id}`);
     }
 };
@@ -96,7 +97,8 @@ const findAllHikes = async (req, res) => {
     if (findAllHikes === null) {
         console.log('Favorite hikes not found!');
     } else {
-        console.log(findAllHikes instanceof FavoriteHikes); // true
+        console.log(findAllHikes instanceof FavoriteHikes);
+        console.log(`Res is: ${res}`);
         console.log(`This user's favorite hikes: ${findAllHikes.user_id}`);
     }
 };

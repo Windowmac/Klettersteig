@@ -6,9 +6,10 @@ const router = express.Router();
 //end url: api/favorite-hikes
 
 router.get('/', async (req, res) => {
-  const favoriteHikes = await FavoriteHikes.findAll().catch((err) => {
-    res.status(500).json('Request not found :(');
-  });
+  const favoriteHikes = await FavoriteHikes.findAll()
+    .catch((err) => {
+      res.status(500).json('Request not found :(' + err);
+    });
   res.status(200).json(favoriteHikes);
 });
 
@@ -19,7 +20,7 @@ router.get('/user', async (req, res) => {
         user_id: req.body.user_id,
       },
     }).catch((err) => {
-      res.status(404).json('Request not found :(');
+      res.status(404).json('Request not found :(' + err);
     });
     res.status(200).json(favoriteHikes);
   } else {
