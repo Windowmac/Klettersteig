@@ -72,34 +72,32 @@ addToFavs();
 const findOneHike = async (req, res) => {
     await FavoriteHikes.findOne({ 
         where: { 
-            id: user_id,
-            hike: hike_id        
+            user_id: req.body.user_id,
+            hike: req.body.hike_id
         } 
     });
     if (findOneHike === null) {
         console.log('Favorite hike not found!');
     } else {
         console.log(findOneHike instanceof FavoriteHikes); // true
-        console.log(findOneHike.user_id);
+        console.log(`This user's favorite hike for this ID: ${findOneHike.user_id}`);
     }
 };
 
-const findAllHikes = async(req, res) {
+const findAllHikes = async (req, res) => {
     await FavoriteHikes.findOne({ 
-        where: { 
-            id: user_id,
-            hike: hike_id
+        where: {
+            user_id: req.body.user_id,
+            hike: req.body.hike_id
         } 
     });
     if (findAllHikes === null) {
-        console.log('Favorite hike not found!');
+        console.log('Favorite hikes not found!');
     } else {
         console.log(findAllHikes instanceof FavoriteHikes); // true
-        console.log(findAllHikes.user_id);
+        console.log(`This user's favorite hikes: ${findAllHikes.user_id}`);
     }
 };
-
-console.log("Your favorite hikes: ");
 
 // ----------------------------------------------------------------
 
