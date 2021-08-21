@@ -60,6 +60,7 @@ const addToFavs = () => {
     .then(json => console.log(json))
     .then(data => {
         data.map((testUser) => {
+            testUser.join(', ');
             console.log(`Data is ${data}`);
         })
     })
