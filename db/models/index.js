@@ -17,6 +17,24 @@ Hike.belongsToMany(User, {
   },
 });
 
+User.hasMany(FavoriteHikes, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
+
+FavoriteHikes.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+
+User.hasMany(Times, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
+
+Times.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+
 module.exports = {
   Hike,
   User,
