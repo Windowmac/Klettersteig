@@ -44,6 +44,10 @@ Hike.hasMany(Image, {
   foreignKey: 'hike_id'
 });
 
+Times.belongsTo(Hike, {
+  foreignKey: 'hike_id',
+});
+
 module.exports = {
   Hike,
   User,

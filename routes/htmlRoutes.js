@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 router.get('/hikes/:hike_id', async (req, res) => {
   const hikeData = await Hike.findByPk(req.params.hike_id, {
     include: {
-      model: Image
+      model: Image,
     }
   }).catch((err) => {
     res.status(500).json(err);
@@ -20,23 +20,46 @@ router.get('/hikes/:hike_id', async (req, res) => {
   const userData = await User.findOne({
     where: {
       username: req.session.username,
-    },
-    include: {
-      model: Times
     }
   }).catch(err => {res.status(500).json(err)});
 
   const user = userData.get({ plain: true });
 
+  const timeData = await Times.findOne({
+    where: {
+      user_id: user.id,
+      hike_id: hike.id
+    }
+  }).catch(err => {res.status(500).json(err)});
+  
+  if(timeData){
+    const userTime = timeData.get({ plain: true});
+
+    const hikeImages = hike.images.map(img => img.data.toString('base64'));
+    console.log('hikeImages ====== ', hikeImages);
+    res.render('hikes', {
+      hike,
+      user,
+      userTime,
+      hikeImages,
+      hikeId: req.params.hike_id,
+      loggedIn: req.session.loggedIn
+    });
+  } else {
+    const userTime = 'no time input yet!'
+
   const hikeImages = hike.images.map(img => img.data.toString('base64'));
-  console.log('user ====== ', user);
+  console.log('hikeImages ====== ', hikeImages);
   res.render('hikes', {
     hike,
     user,
+    userTime,
     hikeImages,
     hikeId: req.params.hike_id,
     loggedIn: req.session.loggedIn
   });
+  }
+  
 });
 
 router.get('/users/:username/:lat/:lon', async (req, res) => {
