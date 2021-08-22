@@ -37,6 +37,7 @@ router.get('/', async (req, res) => {
         user_id: user.id,
         hike_id: hike.id
       }).catch(err => {res.status(500).json(err)});
+      console.log(image.id)
       res.status(202).json(image.id);
     } else {
       res.status(404).json('no hike id found');

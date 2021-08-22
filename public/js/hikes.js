@@ -18,8 +18,8 @@ const addHikePic = async (pic) => {
     headers: { 'Content-Type': 'application/json' },
   }).then(res => res.json());
 
-  if(response.id){
-    createNotification(`image #${response.id} created`);
+  if(response > 0){
+    console.log(`image #${response} created`);
   }
 }
 
