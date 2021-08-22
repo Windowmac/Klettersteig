@@ -1,3 +1,5 @@
+
+
 {{#if loggedIn}}
       <div class="row">
         <!-- <form class="col s12"> -->
@@ -24,20 +26,10 @@
         <div id="card1" class="col s6 m11 l1">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title" id="favedHikes">Favorite Hikes</span>
-              {{#each favorite-hikes}}
-                <li>{{user_id}}</li>
-                <li>{{hike_id}}</li>
-              {{/each}}              
-              {{!-- <p>PLACE HOLDER</p>
-              <p>PLACE HOLDER</p>
-              <p>PLACE HOLDER</p>
-              <p>PLACE HOLDER</p> --}}
-            </div>
-          </ul>
-            <div class="card-action">
-              <a href="#">Links to favorited hikes</a>
-              <a href="#">Links to favorited hikes</a>
+              <span class="card-title">Favorite Hikes</span>
+              {{#each user.favorite_hikes}}
+              <li><a href="/hikes/{{this.hike_id}}">{{this.hike_name}}</a></li>
+              {{/each}}
             </div>
           </div>
         </div>
