@@ -13,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <!-- materialize icons cdn -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../styles.css">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 <!-- map generator API -->
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/build/ol.js"></script>
@@ -39,22 +39,6 @@
 <body class="grey darken-4">
 
     {{{body}}}
-
-    <p>
-      Sunrise at this location is at <span id="sunrise">0.00</span>,
-      sunset is at <span id="sunset">0.00</span>.
-    </p>
-    <button id="sunriseBtn">
-      Get sunrise and sunset hours for this location
-    </button>
-    <button id="favButton">
-      Add this hike to favorites
-    </button>
-
-    <form action="/search/" method="GET">
-        <input required type="search" name="city-search" placeholder="Enter a city here..."/>
-        <button type="submit">Search</button>
-    </form>
 
 <!-- materialize modal script -->
   <script>

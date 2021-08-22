@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../connection');
 
-class FavoriteHikes extends Model {}
+class Image extends Model {}
 
-FavoriteHikes.init(
+Image.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -27,11 +27,11 @@ FavoriteHikes.init(
         unique: false,
       },
     },
-    hike_name: {
-      type: DataTypes.STRING,
+    data: {
+        type: DataTypes.BLOB,
     }
   },
-  { sequelize, modelName: 'favorite_hikes', timestamps: false }
+  { sequelize, modelName: 'image', timestamps: false }
 );
 
-module.exports = FavoriteHikes;
+module.exports = Image;
