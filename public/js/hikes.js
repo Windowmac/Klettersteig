@@ -60,10 +60,11 @@ const sunsetAndRise = (userLat, userLong) => {
   });
 };
 
-const addFavorite = async (userId, hikeId) => {
+const addFavorite = async (userId, hikeId, hikeName) => {
   const body = {
     user_id: userId,
-    hike_id: hikeId
+    hike_id: hikeId,
+    hike_name: hikeName
   }
   const response = await fetch('/api/favorite-hikes', {
     method: 'POST',
@@ -81,5 +82,5 @@ const addFavorite = async (userId, hikeId) => {
 };
 
 favButton.addEventListener('click', () => {
-  addFavorite(favButton.dataset.user_id, favButton.dataset.hike_id);
+  addFavorite(favButton.dataset.user_id, favButton.dataset.hike_id, favButton.dataset.hike_name);
 });
