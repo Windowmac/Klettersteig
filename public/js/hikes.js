@@ -25,4 +25,38 @@ const addHikePic = async (pic) => {
 
 submitPic.addEventListener('click', () => {
   addHikePic(hikePic.value);
-})
+});
+
+const sunriseButton = document.getElementById("sunriseBtn");
+const citySearchInput = document.getElementById("city-search");
+const sunriseEl = document.getElementById("sunrise");
+const sunsetEl = document.getElementById("sunset");
+
+
+
+sunriseButton.addEventListener("click", function() {
+    sunsetAndRise(sunriseButton.dataset.lat, sunriseButton.dataset.lon);
+  });
+
+// -------------------------------- Sunrise/set API --------------------------------
+
+// Sunrise/sunset API courtesy of https://sunrise-sunset.org/api
+const sunsetAndRise = (userLat, userLong) => {
+  fetch(`https://api.sunrise-sunset.org/json?lat=${userLat}lng=${userLong}`)
+  .then(function (response) {
+    if (response.status === 404) {
+      console.log("Something went wrong. Please try again.")
+    } else {
+      data = response.json();
+      return data;
+  }})
+  .then(function (data) {
+    const lat = data.results.sunrise;
+    const long = data.results.sunset;
+    console.log(`Sunrise for this location is at: \n${lat}`);
+    console.log(`Sunset for this location is at: \n${long}`);
+
+    sunriseEl.innerText = lat;
+    sunsetEl.innerText = long;
+  });
+};

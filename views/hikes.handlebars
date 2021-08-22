@@ -1,4 +1,3 @@
-
 <div>
   {{hike.name}}
   {{hike.length}}
@@ -6,9 +5,9 @@
   {{hike.longitude}}
   {{user.username}}
   {{#each hikeImages}}
-  <div>
-    <img src="data:image/png;base64,{{this}}"/>
-  </div>
+    <div>
+      <img src='data:image/png;base64,{{this}}' />
+    </div>
   {{/each}}
 </div>
 <div id='backgroundPic'>
@@ -28,12 +27,24 @@
         <div class='card teal lighten-2'>
           <div class='card-content white-text'>
             <span class='card-title'><strong>Hike Stats</strong></span>
-            <p>
+
+              <li>
+                <p>
+                  Sunrise at this location is at
+                  <span id='sunrise'>0.00</span>, sunset is at
+                  <span id='sunset'>0.00</span>.
+                </p>
+                <button id='sunriseBtn' data-lat="{{hike.latitude}}" data-lon="{{hike.longitude}}">
+                  Get sunrise and sunset hours for this location
+                </button>
+                <button id='favButton'>
+                  Add this hike to favorites
+                </button></li>
               <li>Length: {{hike.length}} miles</li>
               <li>Difficulty: </li>
               <li>Tags: </li>
               <li>Overall Best Time: </li>
-            </p>
+
           </div>
           <div class='card-action'>
             <button data-target='modal1' class='btn modal-trigger'>Recommended
@@ -106,17 +117,19 @@
 </div>
 
 <div>
-<label for="hike_pic">Add a picture of this hike: </label>
+  <label for='hike_pic'>Add a picture of this hike: </label>
 
-<input type="file"
-       id="hike_pic" name="hike_pic"
-       accept="image/png, image/jpeg">
-<label for="pic_name">Add a picture name: </label>
-<input type="text" name="pic_name" id="pic_name">
+  <input
+    type='file'
+    id='hike_pic'
+    name='hike_pic'
+    accept='image/png, image/jpeg'
+  />
+  <label for='pic_name'>Add a picture name: </label>
+  <input type='text' name='pic_name' id='pic_name' />
 
-<button id="submit_pic" data-hike_id="{{hike.id}}">Submit</button>
+  <button id='submit_pic' data-hike_id='{{hike.id}}'>Submit</button>
 </div>
-
 
 <script src='../js/hikes.js'></script>
 <script

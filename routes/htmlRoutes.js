@@ -19,7 +19,7 @@ router.get('/hikes/:hike_id', async (req, res) => {
 
   const userData = await User.findOne({
     where: {
-      username: req.session.username
+      username: req.session.username,
     },
     include: {
       model: Times
@@ -27,8 +27,9 @@ router.get('/hikes/:hike_id', async (req, res) => {
   }).catch(err => {res.status(500).json(err)});
 
   const user = userData.get({ plain: true });
+
   const hikeImages = hike.images.map(img => img.data.toString('base64'));
-  console.log('hike images ====== ', hikeImages);
+  console.log('user ====== ', user);
   res.render('hikes', {
     hike,
     user,
@@ -39,6 +40,10 @@ router.get('/hikes/:hike_id', async (req, res) => {
 });
 
 router.get('/users/:username/:lat/:lon', async (req, res) => {
+  req.session.save(() => {
+    req.session.lat = req.params.lat;
+    req.session.lon = req.params.lon;
+  })
   const userData = await User.findOne({
     where: {
       username: req.params.username,
@@ -50,12 +55,13 @@ router.get('/users/:username/:lat/:lon', async (req, res) => {
   }).catch((err) => {
     res.status(500).json('unable to find user');
   });
+  const user = userData.get({ plain: true });
 
-  const userState = userData.state;
+  const userState = user.state;
   const mapUrl = `https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2908734.6682857913!2d${req.params.lat}!3d${req.params.lon}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1shiking%20trails%20in%20${userState}!5e0!3m2!1sen!2sus!4v1628978922827!5m2!1sen!2sus`;
 
   res.render('landing-page', {
-    userData,
+    user,
     mapUrl,
     loggedIn: req.session.loggedIn,
   });
