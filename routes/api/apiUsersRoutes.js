@@ -32,6 +32,7 @@ router.post('/sign-in/:username', async (req, res) => {
   if (validated) {
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.username = req.params.username;
       res.status(202).json(validated);
     });
   } else {

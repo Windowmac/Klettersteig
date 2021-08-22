@@ -2,6 +2,7 @@ const Hike = require('./Hike.js');
 const User = require('./User.js');
 const Times = require('./Times.js');
 const FavoriteHikes = require('./FavoriteHikes.js');
+const Image = require('./Image')
 
 User.belongsToMany(Hike, {
   through: {
@@ -35,11 +36,20 @@ Times.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
+Image.belongsTo(Hike, {
+  foreignKey: 'hike_id'
+});
+
+Hike.hasMany(Image, {
+  foreignKey: 'hike_id'
+});
+
 module.exports = {
   Hike,
   User,
   Times,
-  FavoriteHikes
+  FavoriteHikes,
+  Image
 };
 
 

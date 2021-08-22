@@ -1,3 +1,16 @@
+
+<div>
+  {{hike.name}}
+  {{hike.length}}
+  {{hike.latitude}}
+  {{hike.longitude}}
+  {{user.username}}
+  {{#each hikeImages}}
+  <div>
+    <img src="data:image/png;base64,{{this}}"/>
+  </div>
+  {{/each}}
+</div>
 <div id='backgroundPic'>
   <div class='container'>
     <div class='row'>
@@ -16,7 +29,7 @@
           <div class='card-content white-text'>
             <span class='card-title'><strong>Hike Stats</strong></span>
             <p>
-              <li>Length: </li>
+              <li>Length: {{hike.length}} miles</li>
               <li>Difficulty: </li>
               <li>Tags: </li>
               <li>Overall Best Time: </li>
@@ -91,6 +104,19 @@
     </div>
   </div>
 </div>
+
+<div>
+<label for="hike_pic">Add a picture of this hike: </label>
+
+<input type="file"
+       id="hike_pic" name="hike_pic"
+       accept="image/png, image/jpeg">
+<label for="pic_name">Add a picture name: </label>
+<input type="text" name="pic_name" id="pic_name">
+
+<button id="submit_pic" data-hike_id="{{hike.id}}">Submit</button>
+</div>
+
 
 <script src='../js/hikes.js'></script>
 <script

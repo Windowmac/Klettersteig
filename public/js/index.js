@@ -64,9 +64,9 @@ const handleLogin = async (username, password) => {
       method: 'POST',
       body: JSON.stringify(body),
       headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
+    }).then(res => res.json());
+    console.log(response);
+    if (response) {
       document.location.replace(`/users/${username}/${userLon}/${userLat}`);
     } else {
       alert('Failed to log in.');
@@ -79,34 +79,6 @@ const handleLogin = async (username, password) => {
 loginBtn.addEventListener('click', (event) => {
   event.preventDefault()
   handleLogin(userName.value, password.value);
-
-
-  // let body = {};
-  // if (userName.value && password.value) {
-  //   body.username = userName.value;
-  //   body.password = password.value;
-
-  // } else {
-  //   window.alert('enter username and password');
-  //   return;
-  // }
-  // try {
-  //   fetch(`/api/users/sign-in/${body.username}`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': "application/json",
-  //     },
-  //     body: JSON.parse(body),
-  //   })
-  //   .then((res) => res.json())
-  //   .then((result) => {
-  //     console.log(result);
-  //   });
-  // } catch (err) {
-  //   throw new Error(err);
-  // }
-  // console.log(password.value);
-  // console.log(userName.value);
 });
 
 
@@ -118,22 +90,6 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 };
 
-// const buildMap = (westBorder, southBorder, eastBorder, northBorder) => {
-//   const mapEl = document.createElement('iframe');
-//   mapEl.width = "425";
-//   mapEl.height = "350";
-//   mapEl.frameborder = "0";
-//   mapEl.scrolling = "no";
-//   mapEl.marginheight= "0";
-//   mapEl.marginwidth= "0";
-//   mapEl.src= `https://www.openstreetmap.org/export/embed.html?bbox=${westBorder}%2C${southBorder}%2C${eastBorder}%2C${northBorder}&amp;layer=mapnik`;
-//   mapEl.style= "border: 1px, solid, black";
-
-//   console.log('made it here!');
-//   document.body.appendChild(mapEl);
-// };
-
-// buildMap(-123.1522, 45.3471, -122.2691, 45.6676);
 
 // -------------------------------- Lat/Long Converter --------------------------------
 

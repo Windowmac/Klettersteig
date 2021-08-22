@@ -1,5 +1,5 @@
 const express = require('express');
-const { User, Hike, Times } = require('../../db/models');
+const { User, Hike, Times, Image } = require('../../db/models');
 
 const router = express.Router();
 
@@ -23,5 +23,25 @@ router.get('/', async (req, res) => {
       res.status(404).json('no hike id found');
     }
   });
+
+  router.post('/:id/add-pic', async (req, res) => {
+    if(req.params.id > 0){
+      const hike = await Hike.findByPk(req.params.id).catch(err => {res.status(500).json('error finding hike :(')});
+      const user = await User.findOne({
+        where: {
+          username: req.session.username
+        }
+      }).catch(err => {res.status(500).json(err)});
+      const image = await Image.create({
+        data: req.body.data,
+        user_id: user.id,
+        hike_id: hike.id
+      }).catch(err => {res.status(500).json(err)});
+      res.status(202).json(image.id);
+    } else {
+      res.status(404).json('no hike id found');
+    }
+    
+  })
 
   module.exports = router;
