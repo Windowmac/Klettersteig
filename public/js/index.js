@@ -2,6 +2,11 @@ const userName = document.getElementById('username_login');
 const password = document.getElementById('pass_login');
 const submitBtn = document.getElementById('create-btn');
 const loginBtn = document.getElementById('loginBtn');
+const createUsername = document.getElementById('username_create');
+const createPassword = document.getElementById('pass_create');
+const firstName = document.getElementById('firstName');
+const lastName = document.getElementById('lastName');
+const email = document.getElementById('email');
 
 let userLat = 0;
 let userLon = 0;
@@ -17,31 +22,33 @@ navigator.geolocation.getCurrentPosition(function (position) {
 submitBtn.addEventListener('click', (event) => {
   event.preventDefault();
 
-  let body = {};
-  console.log(password.value);
-  console.log(userName.value);
-  if (userName.value.length && password.value.length) {
-    body.username = userName.value;
-    body.password = password.value;
+  const body = {};
+
+  if (createUsername.value.length && createPassword.value.length) {
+    body.username = createUsername.value;
+    body.password = createPassword.value;
+    body.first_name = firstName.value;
+    body.last_name = lastName.value;
+    body.email = email.value;
+    
+    try {
+      fetch('/api/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          console.log(result);
+        });
+    } catch (err) {
+      throw new Error(err);
+    }
   } else {
     window.alert('enter username and password');
     return;
-  }
-
-  try {
-    fetch('/api/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-      });
-  } catch (err) {
-    throw new Error(err);
   }
 });
 

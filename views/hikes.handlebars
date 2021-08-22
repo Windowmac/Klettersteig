@@ -1,9 +1,4 @@
-{{user.username}}
-{{#each hikeImages}}
-  <div>
-    <img src='data:image/png;base64,{{this}}' />
-  </div>
-{{/each}}
+{{#if loggedIn}}
 
 <div id='backgroundPic'>
   <div class='container'>
@@ -11,10 +6,13 @@
       <div class='col s6'>
         <div class='card'>
           <div class='card-image'>
-            <img
-              src='https://i1.wp.com/wanderlustphotosblog.com/wp-content/uploads/2019/04/Multnomah-Falls-Trails-Map.png?resize=994%2C737&ssl=1'
-            />
-            <span class='card-title'>Multnomah-Falls-Trails-Map</span>
+              <div class="carousel">
+                {{#each hikeImages}}
+                <a class="carousel-item"><img src="data:image/png;base64,{{this}}"></a>
+                {{else}}
+                <p class="none">No content</p>
+                {{/each}}
+            </div>
           </div>
         </div>
       </div>
@@ -128,8 +126,13 @@
     </div>
   </div>
 </div>
-
+{{else}}
+<a href="/">Please log in to view this page</a>
+{{/if}}
 <script src='../js/hikes.js'></script>
 <script
   src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'
 ></script>
+
+
+
