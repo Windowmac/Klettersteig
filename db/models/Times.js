@@ -16,14 +16,14 @@ Times.init(
     minutes: {
       type: DataTypes.INTEGER,
       validate: {
-        max: 60,
+        max: 59,
         min: 0,
       },
     },
     seconds: {
       type: DataTypes.INTEGER,
       validate: {
-        max: 60,
+        max: 59,
         min: 0,
       },
     },

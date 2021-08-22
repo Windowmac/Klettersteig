@@ -7,15 +7,18 @@ router.get('/', (req, res) => {
 });
 
 router.get('/hikes/:hike_id', async (req, res) => {
-  const hikeData = await Hike.findByPk(req.params.hike_id, {
-    include: {
-      model: Image,
-    }
-  }).catch((err) => {
+  const hikeData = await Hike.findOne({
+    where: {
+      id: req.params.hike_id
+    },
+    include: [{model: Image}],
+  },
+  ).catch((err) => {
     res.status(500).json(err);
   });
 
   const hike = hikeData.get({ plain: true });
+  console.log(hike);
 
   const userData = await User.findOne({
     where: {

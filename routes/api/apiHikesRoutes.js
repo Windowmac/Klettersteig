@@ -26,12 +26,16 @@ router.get('/', async (req, res) => {
 
   router.post('/:id/add-pic', async (req, res) => {
     if(req.params.id > 0){
-      const hike = await Hike.findByPk(req.params.id).catch(err => {res.status(500).json('error finding hike :(')});
-      const user = await User.findOne({
+      const hikeData = await Hike.findByPk(req.params.id).catch(err => {res.status(500).json('error finding hike :(')});
+      const userData = await User.findOne({
         where: {
           username: req.session.username
         }
       }).catch(err => {res.status(500).json(err)});
+
+      const hike = hikeData.get({ plain: true });
+      const user = userData.get({ plain: true });
+
       const image = await Image.create({
         data: req.body.data,
         user_id: user.id,

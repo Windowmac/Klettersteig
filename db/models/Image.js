@@ -28,7 +28,7 @@ Image.init(
       },
     },
     data: {
-        type: DataTypes.BLOB,
+        type: DataTypes.BLOB('long'),
     }
   },
   { sequelize, modelName: 'image', timestamps: false }
