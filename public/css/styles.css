@@ -1,5 +1,5 @@
-body {
-    background-image: url("./multnomah-falls-background.jpg") no-repeat center center fixed; 
+.background {
+    background: url("../images/multnomah-falls-background.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -88,14 +88,48 @@ body {
   .form-container .btn:hover, .open-button:hover {
     opacity: 1;
   }
+  
+  #textarea {    
+    background-color : #dff5d8;
+    font-size: 150%;
+    border-radius: 15px;
+    border: 3px solid #596e67;
+    max-width: 95%;
+    padding-left: 20px;
+  }
 
-  #textarea1 {
+  #textarea1 {    
+    background-color : #dff5d8;
+    font-size: 150%;
+    border-radius: 15px;
+    border: 3px solid #596e67;
+    position: relative;
+    left:10px;
+    top:0px;
+    width: 25%;
+    padding: 10px;
+  }
+
+  .sunrisesetBtn {
     background-color : #d1d1d1;
-    font-size: 175%;
+    font-size: 75%;
     border-radius: 15px;
     position: relative;
     left:10px;
-    top:60px;
+    top:0px;
+    width: 10%;
+  }
+
+  .searchBtn {
+    background-color : #d1d1d1;
+    font-size: 75%;
+    border-radius: 5px;
+    padding: 2px;
+    position: relative;
+    left:5px;
+    top:0px;
+    /* width: 10%; */
+    display: inline-block
   }
 
   #searchbutton {
@@ -133,3 +167,21 @@ body {
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     }
+
+    .float-container {
+      /* border: 3px solid #fff; */
+      padding: 20px;
+  }
+  
+  .float-child {
+      width: 50%;
+      float: left;
+      padding: 20px;
+      /* border: 2px solid red; */
+  }  
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}

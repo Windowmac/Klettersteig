@@ -27,8 +27,7 @@
           <!-- <i class="center material-icons prefix">hiking</i> -->
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="material-icons brand-logo center font-size:30px prefix">hiking</li>
-            <li><a href="#login" class="modal-trigger">Login</a></li>
-            <li><a href="#register" class="modal-trigger">Create account</a></li>
+            <li><a href="views\sign-in.handlebars" class="modal-trigger">Log out</a></li>
             <li><a href="mailto:manorastrman@inorbit.com?subject=Mail from Kletterstieg!!">Email Us</a></li>
             <div id="map" class="map"></div>
           </ul>
@@ -38,7 +37,63 @@
 </head>
 <body class="background">
 
-    {{{body}}}
+  <div class="row">
+    <!-- <form class="col s12"> -->
+        <div class="row">
+            <div id="textarea1" class="input-field col s5">
+                <input type="text" class="validate">
+                <label for="name">Search</label>
+            </div>
+            <div class="input-field col s5">
+                <button class="btn waves-effect waves-light" type="submit" id="searchbutton" name="action">Search!<i class="material-icons right">hiking</i>
+                </button>
+            </div>
+        </div>
+    </form>
+ </div>
+ <center><div><br><br>
+ <iframe src="{{mapUrl}}" width="450" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div></center>
+
+<div class="valign-wrapper"  style="width:100%; height:35%; position: absolute">
+ <div class="row">
+    <div id="card1" class="col s6 m11 l1">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Favorite Hikes</span>
+          <p>PLACE HOLDER</p>
+          <p>PLACE HOLDER</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Links to favorited hikes</a>
+          <a href="#">Links to favorited hikes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="card2" class="col s6 m11 l1">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Suggested Hikes</span>
+          <p>PLACE HOLDER</p>
+          <p>PLACE HOLDER</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Links to possible hikes?</a>
+          <a href="#">Links to possible hikes?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- materialize modal script -->
+<script>
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+</script>
 
 <!-- materialize modal script -->
   <script>
@@ -48,10 +103,3 @@
   </script>
   </body>
 </html>
-
-          {{!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="material-icons brand-logo center font-size:30px prefix">hiking</li>
-            <li><a href="views\sign-in.handlebars" class="modal-trigger">Log out</a></li>
-            <li><a href="mailto:manorastrman@inorbit.com?subject=Mail from Kletterstieg!!">Email Us</a></li>
-            <div id="map" class="map"></div>
-          </ul> --}}
