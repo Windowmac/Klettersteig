@@ -77,7 +77,7 @@ router.get('/users/:username/:lat/:lon', async (req, res) => {
     include: [{model: FavoriteHikes},
       {model: Times}],
   }).catch((err) => {
-    res.status(500).json('unable to find user');
+    res.status(500).json(err);
   });
   const user = userData.get({ plain: true });
   console.log(user);

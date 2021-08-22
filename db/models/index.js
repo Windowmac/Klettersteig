@@ -2,7 +2,7 @@ const Hike = require('./Hike.js');
 const User = require('./User.js');
 const Times = require('./Times.js');
 const FavoriteHikes = require('./FavoriteHikes.js');
-const Image = require('./Image')
+const Image = require('./Image');
 
 
 User.hasMany(FavoriteHikes, {

@@ -28,7 +28,7 @@ router.get('/user', async (req, res) => {
   }
 });
 
-router.post('/api/favorite-hikes/', async (req, res) => {
+router.post('/', async (req, res) => {
   if (req.body.user_id && req.body.hike_id) {
     const newFavoriteHike = await FavoriteHikes.create(req.body).catch(
       (err) => {
