@@ -106,3 +106,35 @@ function openForm() {
 function closeForm() {
   document.getElementById('myForm').style.display = 'none';
 };
+
+// Courtesy of https://codeburst.io/a-simple-star-rating-system-using-vanilla-js-css-and-html-caf1b3e4d9f1
+const ratingFunction = (data) => {
+  let el = document.getElementById(data.target.id);
+  let ratingID = parseInt(element.id);
+  let stringID = "";
+  let i = 1;
+  while (i <= ratingID) {
+    stringID = i.toString();
+    let goldColor = document.getElementById(stringID);
+    goldColor.style.color = "gold";
+    i++;
+  };
+  while (i <= 5) {
+    ratingId = i.toString();
+    let whiteColor = document.getElementById(stringID);
+    white.style.color = "white";
+    i++;
+  };
+  this.averageRating();
+};
+
+const averageRating = () => {
+  let ratingArr = [];
+  let stars = document.getElementsByClassName("stars");
+  for (let i = 0; i < stars.length; i++) {
+    ratingArr.push(stars[i].style.color);
+  }
+  this.setState({
+    rating: ratingArr.length
+  });
+};
