@@ -1,5 +1,5 @@
 const express = require('express');
-const { User, Hike, FavoriteHikes, Times, Image } = require('../db/models');
+const { User, Hike, FavoriteHikes, Times, Image, UserRatings } = require('../db/models');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -43,12 +43,12 @@ router.get('/hikes/:hike_id', async (req, res) => {
     res.render('hikes', {
       hike,
       user,
-      userDifficulty,
-      userTags,
-      userBestTime,
-      userTime,
-      userRating,
-      useravgRating,
+      // userDifficulty,
+      // userTags,
+      // userBestTime,
+      // userTime,
+      // userRatings,
+      // useravgRating,
       hikeImages,
       hikeId: req.params.hike_id,
       loggedIn: req.session.loggedIn
@@ -61,12 +61,12 @@ router.get('/hikes/:hike_id', async (req, res) => {
   res.render('hikes', {
     hike,
     user,
-    userDifficulty,
-    userTags,
-    userBestTime,
-    userTime,
-    userRating,
-    useravgRating,
+    // userDifficulty,
+    // userTags,
+    // userBestTime,
+    // userTime,
+    // userRatings,
+    // useravgRating,
     hikeImages,
     hikeId: req.params.hike_id,
     loggedIn: req.session.loggedIn

@@ -32,13 +32,14 @@
             <li class="material-icons brand-logo center font-size:30px prefix">hiking</li>
 
             {{#if loggedIn}}
-            <li><a href="#logout" class="btn-no-style" id="logout">Logout</a></li>
-            <li><a href="mailto:manorastrman@inorbit.com?subject=Mail from Kletterstieg!!">Email Us</a></li>            
+            <li><a href="#logout" class="btn-no-style" id="logoutBtn">Logout</a></li>
+            {{!-- <script src= "../../public/js/logout.js"></script> --}}
             {{else}}
             {{!-- <a href="/login">Login</a> --}}
             <li><a href="#login" class="modal-trigger">Login</a></li>
             <li><a href="#register" class="modal-trigger">Create account</a></li>
             {{/if}}
+            
             <li><a href="mailto:manorastrman@inorbit.com?subject=Mail from Kletterstieg!!">Email Us</a></li>
             <div id="map" class="map"></div>
           </ul>
@@ -57,4 +58,5 @@
     });
   </script>
   </body>
+<script src= "../../public/js/logout.js"></script>
 </html>
