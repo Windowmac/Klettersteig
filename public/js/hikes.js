@@ -127,7 +127,7 @@ addTimeButton.addEventListener('click', () => {
 // Courtesy of https://codeburst.io/a-simple-star-rating-system-using-vanilla-js-css-and-html-caf1b3e4d9f1
 const ratingFunction = (data) => {
   let el = document.getElementById(data.target.id);
-  let ratingID = parseInt(element.id);
+  let ratingID = parseInt(el.id);
   let stringID = "";
   let i = 1;
   while (i <= ratingID) {
