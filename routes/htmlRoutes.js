@@ -1,5 +1,5 @@
 const express = require('express');
-const { User, Hike, FavoriteHikes, Times, Image } = require('../db/models');
+const { User, Hike, FavoriteHikes, Times, Image, UserRatings } = require('../db/models');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -19,7 +19,7 @@ router.get('/hikes/:hike_id', async (req, res) => {
 
   const hike = hikeData.get({ plain: true });
   console.log(hike);
-
+  console.log(req.session.username);
   const userData = await User.findOne({
     where: {
       username: req.session.username,
@@ -43,12 +43,12 @@ router.get('/hikes/:hike_id', async (req, res) => {
     res.render('hikes', {
       hike,
       user,
-      userDifficulty,
-      userTags,
-      userBestTime,
+      // userDifficulty,
+      // userTags,
+      // userBestTime,
       userTime,
-      userRating,
-      useravgRating,
+      // userRatings,
+      // useravgRating,
       hikeImages,
       hikeId: req.params.hike_id,
       loggedIn: req.session.loggedIn
@@ -61,12 +61,12 @@ router.get('/hikes/:hike_id', async (req, res) => {
   res.render('hikes', {
     hike,
     user,
-    userDifficulty,
-    userTags,
-    userBestTime,
+    // userDifficulty,
+    // userTags,
+    // userBestTime,
     userTime,
-    userRating,
-    useravgRating,
+    // userRatings,
+    // useravgRating,
     hikeImages,
     hikeId: req.params.hike_id,
     loggedIn: req.session.loggedIn

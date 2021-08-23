@@ -2,7 +2,6 @@ const userName = document.getElementById('username_login');
 const password = document.getElementById('pass_login');
 const submitBtn = document.getElementById('create-btn');
 const loginBtn = document.getElementById('loginBtn');
-const logoutBtn = document.getElementById('logoutBtn');
 const createUsername = document.getElementById('username_create');
 const createPassword = document.getElementById('pass_create');
 const firstName = document.getElementById('firstName');
@@ -43,6 +42,7 @@ submitBtn.addEventListener('click', (event) => {
         .then((res) => res.json())
         .then((result) => {
           console.log(result);
+          document.location.replace(`/users/${body.username}/${userLon}/${userLat}`);
         });
     } catch (err) {
       throw new Error(err);
@@ -85,8 +85,8 @@ const handleLogin = async (username, password) => {
       headers: { 'Content-Type': 'application/json' },
     }).then((res) => res.json());
     console.log(response);
-    if (response) {
-      document.location.replace(`/users/${username}/${userLon}/${userLat}`);
+    if (response != 'invalid username or password') {
+     document.location.replace(`/users/${username}/${userLon}/${userLat}`);
     } else {
       alert('Failed to log in. Please try again.');
     }
@@ -95,26 +95,9 @@ const handleLogin = async (username, password) => {
   }
 };
 
-const handleLogout = async () => {
-  const response = await fetch('/api/users/logout', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
-  if (response.ok) {
-    document.location.replace('/');
-  } else {
-    alert('Failed to log out. Please try again.');
-  }
-};
-
 loginBtn.addEventListener('click', (event) => {
   event.preventDefault();
   handleLogin(userName.value, password.value);
-});
-
-logoutBtn.addEventListener('click', (event) => {
-  event.preventDefault();
-  handleLogout();
 });
 
 function openForm() {
@@ -124,6 +107,8 @@ function openForm() {
 function closeForm() {
   document.getElementById('myForm').style.display = 'none';
 };
+
+// -------------------------------- Rating Function --------------------------------
 
 // Courtesy of https://codeburst.io/a-simple-star-rating-system-using-vanilla-js-css-and-html-caf1b3e4d9f1
 const ratingFunction = (data) => {
@@ -145,6 +130,8 @@ const ratingFunction = (data) => {
   };
   this.averageRating();
 };
+
+// -------------------------------- Average Rating Function --------------------------------
 
 const averageRating = () => {
   let ratingArr = [];
