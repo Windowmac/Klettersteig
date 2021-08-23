@@ -15,12 +15,7 @@ Hike.init(
       allowNull: false,
     },
     discovered_by: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-        unique: true,
-      },
+      type: DataTypes.STRING,
     },
     description: {
       type: DataTypes.STRING,
