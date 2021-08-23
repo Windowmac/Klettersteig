@@ -39,7 +39,7 @@ UserRatings.init(
       type: DataTypes.STRING,
     }
   },
-  { sequelize, modelName: 'favorite_hikes', timestamps: false }
+  { sequelize, modelName: 'user_ratings', timestamps: false }
 );
 
 module.exports = UserRatings;

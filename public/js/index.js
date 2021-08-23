@@ -122,7 +122,7 @@ const ratingFunction = (data) => {
   while (i <= 5) {
     ratingId = i.toString();
     let whiteColor = document.getElementById(stringID);
-    white.style.color = "white";
+    whiteColor.style.color = "white";
     i++;
   };
   this.averageRating();
