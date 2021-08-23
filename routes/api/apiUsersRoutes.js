@@ -18,6 +18,7 @@ router.post('/', async (req, res) => {
   });
   req.session.save(() => {
     req.session.loggedIn = true;
+    req.session.username = req.body.username;
     res.status(202).json(newUser);
   });
 });
@@ -29,12 +30,14 @@ router.post('/sign-in/:username', async (req, res) => {
     res.status(500).json('error finding users :(');
   });
   const validated = await user.validatePassword(req.body.password);
+  console.log(validated);
   if (validated) {
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.username = req.params.username;
       res.status(202).json(validated);
     });
+
   } else {
     res.status(404).json('invalid username or password');
   }

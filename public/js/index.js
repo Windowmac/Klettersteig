@@ -42,6 +42,7 @@ submitBtn.addEventListener('click', (event) => {
         .then((res) => res.json())
         .then((result) => {
           console.log(result);
+          document.location.replace(`/users/${body.username}/${userLon}/${userLat}`);
         });
     } catch (err) {
       throw new Error(err);
@@ -84,8 +85,8 @@ const handleLogin = async (username, password) => {
       headers: { 'Content-Type': 'application/json' },
     }).then((res) => res.json());
     console.log(response);
-    if (response) {
-      document.location.replace(`/users/${username}/${userLon}/${userLat}`);
+    if (response != 'invalid username or password') {
+     document.location.replace(`/users/${username}/${userLon}/${userLat}`);
     } else {
       alert('Failed to log in. Please try again.');
     }
