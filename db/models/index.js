@@ -2,8 +2,8 @@ const Hike = require('./Hike.js');
 const User = require('./User.js');
 const Times = require('./Times.js');
 const FavoriteHikes = require('./FavoriteHikes.js');
+const UserRatings = require('./UserRatings.js');
 const Image = require('./Image');
-
 
 User.hasMany(FavoriteHikes, {
   foreignKey: 'user_id',
@@ -40,6 +40,7 @@ module.exports = {
   User,
   Times,
   FavoriteHikes,
+  UserRatings,
   Image
 };
 

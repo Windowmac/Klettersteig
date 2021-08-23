@@ -26,7 +26,8 @@ UserRatings.init(
         key: 'id',
         unique: false,
       },
-    hike_id: {
+    },
+    hike_rating: {
       type: DataTypes.INTEGER,
       references: {
         model: 'hike',
@@ -41,4 +42,4 @@ UserRatings.init(
   { sequelize, modelName: 'favorite_hikes', timestamps: false }
 );
 
-module.exports = FavoriteHikes;
+module.exports = UserRatings;
