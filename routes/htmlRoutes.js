@@ -1,5 +1,5 @@
 const express = require('express');
-const { User, Hike, FavoriteHikes, Times, Image } = require('../db/models');
+const { User, Hike, FavoriteHikes, Times, Image, UserRatings } = require('../db/models');
 const router = express.Router();
 
 router.get('/', (req, res) => {
