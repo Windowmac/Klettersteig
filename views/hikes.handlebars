@@ -16,23 +16,28 @@
               <span class='card-title'><strong>{{hike.name}}</strong></span>
 
               <li>
+                {{!-- <p>
+                  Sunrise at this location is at
+                  <span id='sunrise' data-lat='{{hike.latitude}}'>0.00</span>, sunset is at
+                  <span id='sunset' data-lon='{{hike.longitude}}'>0.00</span>.
+                </p> --}}
                 <p>
                   Sunrise at this location is at
-                  <span id='sunrise'>0.00</span>, sunset is at
-                  <span id='sunset'>0.00</span>.
+                  <p id='sunsetAndRise(sunrise)' data-lat='{{hike.latitude}}'>0.00</p>.
+                  Sunset is at
+                  <p id='sunsetAndRise(sunset)' data-lon='{{hike.longitude}}'>0.00</p>.
                 </p>
-                <button
+                {{!-- <button
                   id='sunriseBtn'
                   data-lat='{{hike.latitude}}'
-                  data-lon='{{hike.longitude}}'
-                >
+                  data-lon='{{hike.longitude}}'>
                   Get sunrise and sunset hours for this location
-                </button></li>
+                </button> --}}
+              </li>
               <li>Length: {{hike.length}} miles</li>
               {{!-- <li>Difficulty: {{userDifficulty}} </li>
               <li>Tags: {{userTags}}</li>
               <li>Overall Best Time: {{userBestTime}}</li> --}}
-
             </div>
             <div class='card-action'>
               <button data-target='modal1' class='btn modal-trigger'>Recommended
@@ -94,9 +99,9 @@
                   min:
                   {{userTime.seconds}}
                   sec</li>
-              <li>Rating: <button id='userRatingBtn' data-rating='{{UserRating.user}}'>Rate this hike.</button></li>
+              {{!-- <li>Rating: <button id='userRatingBtn' data-rating='{{UserRating.user}}'>Rate this hike.</button></li> --}}
               {{!-- <li>Rating: {{userRating}}</li> --}}
-              <li>Overall Rating: <span id='overallRating'></span> </li>
+              {{!-- <li>Overall Rating: <span id='overallRating'></span> </li> --}}
               {{!-- <li>Overall Rating: {{userOverallRating}}</li> --}}
                 <li><h4><strong>Input New Time: </strong></h4></li>
                 <li>Hrs:
@@ -110,6 +115,20 @@
                     data-user_id='{{user.id}}'
                     data-hike_id='{{hike.id}}'
                   >Add Time</button></li>
+              <div class="container">
+              <div class="star-widget">
+                <input type="radio" name="rate" id="rate-5">
+                <label for="rate-5" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-4">
+                <label for="rate-4" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-3">
+                <label for="rate-3" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-2">
+                <label for="rate-2" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-1">
+                <label for="rate-1" class="fas fa-star"></label>
+              </div>
+            </div>
               </p>
             </div>
           </div>
@@ -149,8 +168,9 @@
 {{/if}}
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-<script src='/js/hikes.js'></script>
-<script src='/js/uploadPic.js'></script>
+<script src='../public/js/hikes.js'></script>
+<script src='../public/js/uploadPic.js'></script>
+<script src='../public/js/userRating.js'></script>
 <script
   src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'
 ></script>

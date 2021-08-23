@@ -13,11 +13,12 @@ const hoursEl = document.getElementById('hours');
 const minutesEl = document.getElementById('minutes');
 const secondsEl = document.getElementById('seconds');
 
-
 // -------------------------------- Sunrise/set API --------------------------------
 
 // Sunrise/sunset API courtesy of https://sunrise-sunset.org/api
 const sunsetAndRise = (userLat, userLong) => {
+  userLat = userLat.dataset.lat;
+  userLong = userLong.dataset.long;
   fetch(`https://api.sunrise-sunset.org/json?lat=${userLat}lng=${userLong}`)
   .then(function (response) {
     if (response.status === 404) {
