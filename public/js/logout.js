@@ -15,4 +15,4 @@ const handleLogout = async () => {
     } else {
       alert('Failed to log out. Please try again.');
     }
-  };
+};

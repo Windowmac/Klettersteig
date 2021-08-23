@@ -153,7 +153,7 @@ addTimeButton.addEventListener('click', () => {
   userRating;
 });
 
-// -------------------------------- Average Rating Function --------------------------------
+// -------------------------------- Average User Rating Function --------------------------------
 
 const averageRating = () => {
   let ratingArr = [];
