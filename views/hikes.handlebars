@@ -15,68 +15,59 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class='col s6'>
-        <div class='card teal lighten-2'>
-          <div class='card-content white-text'>
-            <span class='card-title'><strong>Hike Stats</strong></span>
-
-            <li>
+        <button class="searchBtn" id="favButton">
+          Add this hike to favorites
+          </button>
+    </div>
+        <div class='col s6'>
+          <div class='card teal lighten-2'>
+            <div class='card-content white-text'>
+              <span class='card-title'><strong>Hike Stats</strong></span>
               <p>
-                Sunrise at this location is at
-                <span id='sunrise'>0.00</span>, sunset is at
-                <span id='sunset'>0.00</span>.
+                <li>Length: {{hike.length}} miles</li>
+                <li>Difficulty: {{userDifficulty}} </li>
+                <li>Tags: {{userTags}}</li>
+                <li>Overall Best Time: {{userBestTime}}</li>
               </p>
-              <button
-                id='sunriseBtn'
-                data-lat='{{hike.latitude}}'
-                data-lon='{{hike.longitude}}'
-              >
-                Get sunrise and sunset hours for this location
-              </button></li>
-            <li>Length: {{hike.length}} miles</li>
-            <li>Difficulty: {{userDifficulty}} </li>
-            <li>Tags: {{userTags}}</li>
-            <li>Overall Best Time: {{userBestTime}}</li>
-
-          </div>
-          <div class='card-action'>
-            <button data-target='modal1' class='btn modal-trigger'>Recommended
-              Packing List</button>
-            <div id='modal1' class='modal'>
-              <div class='modal-content'>
-                <h4>Ten Essentials</h4>
-                <p>Navigation: map, compass, altimeter, GPS device, personal
-                  locator beacon (PLB) or satellite messenger. Headlamp: plus
-                  extra batteries. Sun protection: sunglasses, sun-protective
-                  clothes and sunscreen. First aid including foot care and
-                  insect repellent (as needed). Knife plus a gear repair kit.
-                  Fire matches, lighter, tinder and/or stove. Shelter carried at
-                  all times (can be a light emergency bivy). Extra food Beyond
-                  the minimum expectation. Extra water Beyond the minimum
-                  expectation. Extra clothes Beyond the minimum expectation</p>
-              </div>
-              <div class='modal-footer'>
-                <a
-                  class='modal-action modal-close waves-effect waves-light btn view'
-                  href='#modal1'
-                >OK</a>
-              </div>
             </div>
-            <button data-target='modal2' class='btn modal-trigger'>Things You
-              Could See</button>
-            <div id='modal2' class='modal'>
-              <div class='modal-content'>
-                <h4>Things You Might See on Trail</h4>
-                <p>You'll see a magnitude of critters, from owls to frogs, to
-                  deer and salamanders. You will see a few different waterfalls
-                  as well as the Columbia River and Washington State.</p>
+            <div class='card-action'>
+              <button data-target='modal1' class='btn modal-trigger'>Recommended
+                Packing List</button>
+              <div id='modal1' class='modal'>
+                <div class='modal-content'>
+                  <h4>Ten Essentials</h4>
+                  <p>Navigation: map, compass, altimeter, GPS device, personal
+                    locator beacon (PLB) or satellite messenger. Headlamp: plus
+                    extra batteries. Sun protection: sunglasses, sun-protective
+                    clothes and sunscreen. First aid including foot care and
+                    insect repellent (as needed). Knife plus a gear repair kit.
+                    Fire matches, lighter, tinder and/or stove. Shelter carried at
+                    all times (can be a light emergency bivy). Extra food Beyond
+                    the minimum expectation. Extra water Beyond the minimum
+                    expectation. Extra clothes Beyond the minimum expectation</p>
+                </div>
+                <div class='modal-footer'>
+                  <a
+                    class='modal-action modal-close waves-effect waves-light btn view'
+                    href='#modal1'
+                  >OK</a>
+                </div>
               </div>
-              <div class='modal-footer'>
-                <a
-                  class='modal-action modal-close waves-effect waves-light btn view'
-                  href='#modal2'
-                >OK</a>
+              <button data-target='modal2' class='btn modal-trigger'>Things You
+                Could See</button>
+              <div id='modal2' class='modal'>
+                <div class='modal-content'>
+                  <h4>Things You Might See on Trail</h4>
+                  <p>You'll see a magnitude of critters, from owls to frogs, to
+                    deer and salamanders. You will see a few different waterfalls
+                    as well as the Columbia River and Washington State.</p>
+                </div>
+                <div class='modal-footer'>
+                  <a
+                    class='modal-action modal-close waves-effect waves-light btn view'
+                    href='#modal2'
+                  >OK</a>
+                </div>
               </div>
             </div>
           </div>
@@ -125,6 +116,27 @@
       </div>
     </div>
   </div>
+  
+  <script src='../js/hikes.js'></script>
+      <script type="text/javascript" src="../js/materialize.min.js"></script>
+
+<div class="grid-container">
+    <div style="display:block; padding-left: 20px;">
+        <div class="col s6 m3"></div>>
+            <form id="textarea" action="/search/" method="GET">
+                <input required type="search" name="city-search" placeholder="Enter a city here..."/>
+                <button class="searchBtn" type="submit">Search</button>
+            </form>
+        </div>  
+        <div id="textarea" style="display: block" class="col s6 m3">
+            <!-- <p> -->
+            Sunrise at this location is at <span id="sunrise">0.00</span>
+            Sunset is at <span id="sunset">0.00</span>
+            <button class="searchBtn" id="sunriseBtn">
+            Get sunrise and sunset hours for this location
+            </button>
+        </div>
+    </div>
 </div>
 {{else}}
 <a href="/">Please log in to view this page</a>
