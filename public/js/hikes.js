@@ -10,6 +10,9 @@ const sunriseButton = document.getElementById("sunriseBtn");
 const sunriseEl = document.getElementById("sunrise");
 const sunsetEl = document.getElementById("sunset");
 const favButton = document.getElementById("favButton");
+const ratingButton = document.getElementById("ratingButton");
+
+// -------------------------------- Submit Pic Function --------------------------------
 
 const addHikePic = async (pic) => {
   const body = {
@@ -25,17 +28,11 @@ const addHikePic = async (pic) => {
   if(response > 0){
     console.log(`image #${response} created`);
   }
-}
+};
 
 submitPic.addEventListener('click', () => {
   addHikePic(hikePic.value);
 });
-
-
-
-sunriseButton.addEventListener("click", function() {
-    sunsetAndRise(sunriseButton.dataset.lat, sunriseButton.dataset.lon);
-  });
 
 // -------------------------------- Sunrise/set API --------------------------------
 
@@ -52,13 +49,18 @@ const sunsetAndRise = (userLat, userLong) => {
   .then(function (data) {
     const lat = data.results.sunrise;
     const long = data.results.sunset;
-    console.log(`Sunrise for this location is at: \n${lat}`);
-    console.log(`Sunset for this location is at: \n${long}`);
-
+    // console.log(`Sunrise for this location is at: \n${lat}`);
+    // console.log(`Sunset for this location is at: \n${long}`);
     sunriseEl.innerText = lat;
     sunsetEl.innerText = long;
   });
 };
+
+sunriseButton.addEventListener("click", function() {
+  sunsetAndRise(sunriseButton.dataset.lat, sunriseButton.dataset.lon);
+});
+
+// -------------------------------- Add to Favorites Function --------------------------------
 
 const addFavorite = async (userId, hikeId, hikeName) => {
   const body = {
@@ -75,12 +77,18 @@ const addFavorite = async (userId, hikeId, hikeName) => {
   }).then((res) => res.json());
   
   if(response.id) {
-    alert(`favorite hike added!`)
+    alert(`Favorite hike added!`)
   }
-  else{ alert('trouble adding favorite');
+  else{ alert('Trouble adding favorite hike.');
   }
 };
 
 favButton.addEventListener('click', () => {
   addFavorite(favButton.dataset.user_id, favButton.dataset.hike_id, favButton.dataset.hike_name);
 });
+
+// -------------------------------- Rating Function --------------------------------
+
+const userRating = async (user) => {
+  const rating = await user.getRating
+};
