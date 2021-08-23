@@ -43,6 +43,9 @@ router.get('/hikes/:hike_id', async (req, res) => {
     res.render('hikes', {
       hike,
       user,
+      userDifficulty,
+      userTags,
+      userBestTime,
       userTime,
       userRating,
       useravgRating,
@@ -58,6 +61,9 @@ router.get('/hikes/:hike_id', async (req, res) => {
   res.render('hikes', {
     hike,
     user,
+    userDifficulty,
+    userTags,
+    userBestTime,
     userTime,
     userRating,
     useravgRating,
