@@ -95,7 +95,7 @@ const handleLogin = async (username, password) => {
   }
 };
 
-const logout = async () => {
+const handleLogout = async () => {
   const response = await fetch('/api/users/logout', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -140,7 +140,7 @@ const ratingFunction = (data) => {
   while (i <= 5) {
     ratingId = i.toString();
     let whiteColor = document.getElementById(stringID);
-    white.style.color = "white";
+    whiteColor.style.color = "white";
     i++;
   };
   this.averageRating();

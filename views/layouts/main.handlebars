@@ -25,20 +25,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Kletterstieg!!</a>
+          {{!-- <a href="#" class="brand-logo">Kletterstieg!!</a> --}}
+          <a href="/" class="brand-logo">Kletterstieg!!</a>
           <!-- <i class="center material-icons prefix">hiking</i> -->
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="material-icons brand-logo center font-size:30px prefix">hiking</li>
 
             {{#if loggedIn}}
-            {{!-- <button id="logout" class="btn-no-style">Logout</button> --}}
             <li><a href="#logout" class="btn-no-style" id="logout">Logout</a></li>
             {{else}}
             {{!-- <a href="/login">Login</a> --}}
             <li><a href="#login" class="modal-trigger">Login</a></li>
+            <li><a href="#register" class="modal-trigger">Create account</a></li>
             {{/if}}
 
-            <li><a href="#register" class="modal-trigger">Create account</a></li>
             <li><a href="collapsible.html">Contact</a></li>
             <div id="map" class="map"></div>
           </ul>

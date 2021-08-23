@@ -10,10 +10,13 @@ const sunriseButton = document.getElementById("sunriseBtn");
 const sunriseEl = document.getElementById("sunrise");
 const sunsetEl = document.getElementById("sunset");
 const favButton = document.getElementById("favButton");
+const ratingButton = document.getElementById("ratingButton");
 const addTimeButton = document.getElementById('add-time');
 const hoursEl = document.getElementById('hours');
 const minutesEl = document.getElementById('minutes');
 const secondsEl = document.getElementById('seconds');
+
+// -------------------------------- Submit Pic Function --------------------------------
 
 const addHikePic = async (pic) => {
   const body = {
@@ -29,17 +32,11 @@ const addHikePic = async (pic) => {
   if(response > 0){
     console.log(`image #${response} created`);
   }
-}
+};
 
 submitPic.addEventListener('click', () => {
   addHikePic(hikePic.value);
 });
-
-
-
-sunriseButton.addEventListener("click", function() {
-    sunsetAndRise(sunriseButton.dataset.lat, sunriseButton.dataset.lon);
-  });
 
 // -------------------------------- Sunrise/set API --------------------------------
 
@@ -56,13 +53,18 @@ const sunsetAndRise = (userLat, userLong) => {
   .then(function (data) {
     const lat = data.results.sunrise;
     const long = data.results.sunset;
-    console.log(`Sunrise for this location is at: \n${lat}`);
-    console.log(`Sunset for this location is at: \n${long}`);
-
+    // console.log(`Sunrise for this location is at: \n${lat}`);
+    // console.log(`Sunset for this location is at: \n${long}`);
     sunriseEl.innerText = lat;
     sunsetEl.innerText = long;
   });
 };
+
+sunriseButton.addEventListener("click", function() {
+  sunsetAndRise(sunriseButton.dataset.lat, sunriseButton.dataset.lon);
+});
+
+// -------------------------------- Add to Favorites Function --------------------------------
 
 const addFavorite = async (userId, hikeId, hikeName) => {
   const body = {
@@ -82,13 +84,15 @@ const addFavorite = async (userId, hikeId, hikeName) => {
     alert(`favorite hike added!`);
     window.location.reload();
   }
-  else{ alert('trouble adding favorite');
+  else{ alert('Trouble adding favorite hike.');
   }
 };
 
 favButton.addEventListener('click', () => {
   addFavorite(favButton.dataset.user_id, favButton.dataset.hike_id, favButton.dataset.hike_name);
 });
+
+// -------------------------------- Add Time Function --------------------------------
 
 const addTime = async (userId, hikeId, hours, minutes, seconds) => {
   const body = {
@@ -117,3 +121,19 @@ const addTime = async (userId, hikeId, hours, minutes, seconds) => {
 addTimeButton.addEventListener('click', () => {
   addTime(addTimeButton.dataset.user_id, addTimeButton.dataset.hike_id, hoursEl.value, minutesEl.value, secondsEl.value);
 });
+
+// -------------------------------- User Rating Function --------------------------------
+
+const userRating = async (user) => {
+  // const rating = await user.getRating
+};
+
+addTimeButton.addEventListener('click', () => {
+  userRating;
+});
+
+// -------------------------------- Overall Rating Function --------------------------------
+
+const overallRating = async (user) => {
+  const overallRatingEl = 0;
+};
