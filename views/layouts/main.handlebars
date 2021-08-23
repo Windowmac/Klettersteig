@@ -13,8 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <!-- materialize icons cdn -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../../public/css/styles.css">
-    <link type="text/css" rel="stylesheet" href="../../public/css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="../../styles.css">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 <!-- map generator API -->
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/build/ol.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/css/ol.css">
@@ -39,14 +39,14 @@
             {{/if}}
 
             <li><a href="#register" class="modal-trigger">Create account</a></li>
-            <li><a href="mailto:manorastrman@inorbit.com?subject=Mail from Kletterstieg!!">Email Us</a></li>
+            <li><a href="collapsible.html">Contact</a></li>
             <div id="map" class="map"></div>
           </ul>
         </div>
       </nav>
 
 </head>
-<body class="background">
+<body class="grey darken-4">
 
     {{{body}}}
 
@@ -58,10 +58,3 @@
   </script>
   </body>
 </html>
-
-          {{!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="material-icons brand-logo center font-size:30px prefix">hiking</li>
-            <li><a href="views\sign-in.handlebars" class="modal-trigger">Log out</a></li>
-            <li><a href="mailto:manorastrman@inorbit.com?subject=Mail from Kletterstieg!!">Email Us</a></li>
-            <div id="map" class="map"></div>
-          </ul> --}}
