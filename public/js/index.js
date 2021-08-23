@@ -77,26 +77,9 @@ const handleLogin = async (username, password) => {
   }
 };
 
-const handleLogout = async () => {
-  const response = await fetch('/api/users/logout', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
-  if (response.ok) {
-    document.location.replace('/');
-  } else {
-    alert('Failed to log out. Please try again.');
-  }
-};
-
 loginBtn.addEventListener('click', (event) => {
   event.preventDefault();
   handleLogin(userName.value, password.value);
-});
-
-logoutBtn.addEventListener('click', (event) => {
-  event.preventDefault();
-  handleLogout();
 });
 
 function openForm() {
@@ -106,6 +89,8 @@ function openForm() {
 function closeForm() {
   document.getElementById('myForm').style.display = 'none';
 };
+
+// -------------------------------- Rating Function --------------------------------
 
 // Courtesy of https://codeburst.io/a-simple-star-rating-system-using-vanilla-js-css-and-html-caf1b3e4d9f1
 const ratingFunction = (data) => {
@@ -127,6 +112,8 @@ const ratingFunction = (data) => {
   };
   this.averageRating();
 };
+
+// -------------------------------- Average Rating Function --------------------------------
 
 const averageRating = () => {
   let ratingArr = [];
