@@ -34,10 +34,10 @@
               >
                 Get sunrise and sunset hours for this location
               </button></li>
-            <li>Length: {{hike.length}} miles</li>
-            <li>Difficulty: </li>
-            <li>Tags: </li>
-            <li>Overall Best Time: </li>
+              <li>Length: {{hike.length}} miles</li>
+              <li>Difficulty: {{userDifficulty}} </li>
+              <li>Tags: {{userTags}}</li>
+              <li>Overall Best Time: {{userBestTime}}</li>
 
           </div>
           <div class='card-action'>
@@ -92,8 +92,13 @@
             <span class='card-title'><strong>{{user.username}}'s Stats</strong></span>
             <p class='left-align'>
               <li>User Best Time: {{userTime}}</li>
-              <li>User Rating: </li>
-              <li>Overall Rating: </li>
+              <li>User Rating: {{userRating}} </li>
+              <li>Overall Rating: {{userAvgRating}}</li>
+
+              <div class="rating">
+              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+              </div>
+              
             </p>
           </div>
         </div>

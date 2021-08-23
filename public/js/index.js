@@ -2,6 +2,7 @@ const userName = document.getElementById('username_login');
 const password = document.getElementById('pass_login');
 const submitBtn = document.getElementById('create-btn');
 const loginBtn = document.getElementById('loginBtn');
+const logoutBtn = document.getElementById('logoutBtn');
 const createUsername = document.getElementById('username_create');
 const createPassword = document.getElementById('pass_create');
 const firstName = document.getElementById('firstName');
@@ -47,7 +48,7 @@ submitBtn.addEventListener('click', (event) => {
       throw new Error(err);
     }
   } else {
-    window.alert('enter username and password');
+    window.alert('Please enter your username and password');
     return;
   }
 
@@ -87,10 +88,22 @@ const handleLogin = async (username, password) => {
     if (response) {
       document.location.replace(`/users/${username}/${userLon}/${userLat}`);
     } else {
-      alert('Failed to log in.');
+      alert('Failed to log in. Please try again.');
     }
   } else {
-    alert('enter username and password');
+    alert('Please enter your username and password.');
+  }
+};
+
+const logout = async () => {
+  const response = await fetch('/api/users/logout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
+  if (response.ok) {
+    document.location.replace('/');
+  } else {
+    alert('Failed to log out. Please try again.');
   }
 };
 
@@ -99,10 +112,47 @@ loginBtn.addEventListener('click', (event) => {
   handleLogin(userName.value, password.value);
 });
 
+logoutBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  handleLogout();
+});
+
 function openForm() {
   document.getElementById('myForm').style.display = 'block';
-}
+};
 
 function closeForm() {
   document.getElementById('myForm').style.display = 'none';
-}
+};
+
+// Courtesy of https://codeburst.io/a-simple-star-rating-system-using-vanilla-js-css-and-html-caf1b3e4d9f1
+const ratingFunction = (data) => {
+  let el = document.getElementById(data.target.id);
+  let ratingID = parseInt(element.id);
+  let stringID = "";
+  let i = 1;
+  while (i <= ratingID) {
+    stringID = i.toString();
+    let goldColor = document.getElementById(stringID);
+    goldColor.style.color = "gold";
+    i++;
+  };
+  while (i <= 5) {
+    ratingId = i.toString();
+    let whiteColor = document.getElementById(stringID);
+    white.style.color = "white";
+    i++;
+  };
+  this.averageRating();
+};
+
+const averageRating = () => {
+  let ratingArr = [];
+  let stars = document.getElementsByClassName("stars");
+  for (let i = 0; i < stars.length; i++) {
+    ratingArr.push(stars[i].style.color);
+  }
+  this.setState({
+    rating: ratingArr.length
+  });
+};
