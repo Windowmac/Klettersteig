@@ -31,6 +31,8 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
     "express-session": "^1.17.2",
+    "firebase": "^8.10.0",
+    "firebase-admin": "^9.11.1",
     "mysql2": "^2.3.0",
     "sequelize": "^6.6.5"
   },
