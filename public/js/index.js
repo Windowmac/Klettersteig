@@ -2,6 +2,7 @@ const userName = document.getElementById('username_login');
 const password = document.getElementById('pass_login');
 const submitBtn = document.getElementById('create-btn');
 const loginBtn = document.getElementById('loginBtn');
+const logoutBtn = document.getElementById('logoutBtn');
 const createUsername = document.getElementById('username_create');
 const createPassword = document.getElementById('pass_create');
 const firstName = document.getElementById('firstName');
@@ -47,7 +48,7 @@ submitBtn.addEventListener('click', (event) => {
       throw new Error(err);
     }
   } else {
-    window.alert('enter username and password');
+    window.alert('Please enter your username and password');
     return;
   }
 });
@@ -69,16 +70,33 @@ const handleLogin = async (username, password) => {
     if (response) {
       document.location.replace(`/users/${username}/${userLon}/${userLat}`);
     } else {
-      alert('Failed to log in.');
+      alert('Failed to log in. Please try again.');
     }
   } else {
-    alert('enter username and password');
+    alert('Please enter your username and password.');
+  }
+};
+
+const logout = async () => {
+  const response = await fetch('/api/users/logout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
+  if (response.ok) {
+    document.location.replace('/');
+  } else {
+    alert('Failed to log out. Please try again.');
   }
 };
 
 loginBtn.addEventListener('click', (event) => {
   event.preventDefault();
   handleLogin(userName.value, password.value);
+});
+
+logoutBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  handleLogout();
 });
 
 function openForm() {
