@@ -50,6 +50,24 @@ submitBtn.addEventListener('click', (event) => {
     window.alert('Please enter your username and password');
     return;
   }
+
+  try {
+    fetch('/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        window.location.href="file:///C:/Users/email/Homework/Klettersteig-TeamProject-HikingApp/views/layouts/index.html";
+        console.log(result);
+      });
+  } catch (err) {
+    throw new Error(err);
+  }
+  
 });
 
 const handleLogin = async (username, password) => {
