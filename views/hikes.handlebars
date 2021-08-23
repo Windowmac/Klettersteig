@@ -1,13 +1,18 @@
+{{#if loggedIn}}
+
 <div id='backgroundPic'>
   <div class='container'>
     <div class='row'>
       <div class='col s6'>
         <div class='card'>
           <div class='card-image'>
-            <img
-              src='https://i1.wp.com/wanderlustphotosblog.com/wp-content/uploads/2019/04/Multnomah-Falls-Trails-Map.png?resize=994%2C737&ssl=1'
-            />
-            <span class='card-title'>Multnomah-Falls-Trails-Map</span>
+              <div class="carousel">
+                {{#each hikeImages}}
+                <a class="carousel-item"><img src="data:image/png;base64,{{this}}"></a>
+                {{else}}
+                <p class="none">No content</p>
+                {{/each}}
+            </div>
           </div>
         </div>
       </div>
@@ -15,12 +20,25 @@
         <div class='card teal lighten-2'>
           <div class='card-content white-text'>
             <span class='card-title'><strong>Hike Stats</strong></span>
-            <p>
-              <li>Length: </li>
-              <li>Difficulty: </li>
-              <li>Tags: </li>
-              <li>Overall Best Time: </li>
-            </p>
+
+            <li>
+              <p>
+                Sunrise at this location is at
+                <span id='sunrise'>0.00</span>, sunset is at
+                <span id='sunset'>0.00</span>.
+              </p>
+              <button
+                id='sunriseBtn'
+                data-lat='{{hike.latitude}}'
+                data-lon='{{hike.longitude}}'
+              >
+                Get sunrise and sunset hours for this location
+              </button></li>
+            <li>Length: {{hike.length}} miles</li>
+            <li>Difficulty: </li>
+            <li>Tags: </li>
+            <li>Overall Best Time: </li>
+
           </div>
           <div class='card-action'>
             <button data-target='modal1' class='btn modal-trigger'>Recommended
@@ -71,9 +89,9 @@
       <div class='col s6'>
         <div class='card teal lighten-2'>
           <div class='card-content white-text'>
-            <span class='card-title'><strong>User Stats</strong></span>
+            <span class='card-title'><strong>{{user.username}}'s Stats</strong></span>
             <p class='left-align'>
-              <li>User Best Time: </li>
+              <li>User Best Time: {{userTime}}</li>
               <li>User Rating: </li>
               <li>Overall Rating: </li>
             </p>
@@ -83,16 +101,38 @@
       <div class='col s6'>
         <div class='card teal lighten-2'>
           <div class='card-content white-text'>
-            <span class='card-title'><strong>Suggested Hikes</strong></span>
-            <p>Suggested hikes based on difficulty/length/tags/etc</p>
+            <span class='card-title'><strong>Add a Picture to the Hike!</strong></span>
+            <div>
+              <label for='hike_pic'>Add a picture of this hike: </label>
+
+              <input
+                type='file'
+                id='hike_pic'
+                name='hike_pic'
+                accept='image/png, image/jpeg'
+              />
+              <label for='pic_name'>Add a picture name: </label>
+              <input type='text' name='pic_name' id='pic_name' />
+
+              <button id='submit_pic' data-hike_id='{{hike.id}}'>Submit</button>
+              <h5><strong>OR</strong></h5>
+              <button id='favButton' data-user_id="{{user.id}}" data-hike_id="{{hike.id}}" data-hike_name="{{hike.name}}">
+                Add this hike to favorites
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
+{{else}}
+<a href="/">Please log in to view this page</a>
+{{/if}}
 <script src='../js/hikes.js'></script>
 <script
   src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'
 ></script>
+
+
+

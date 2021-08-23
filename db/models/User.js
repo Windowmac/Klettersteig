@@ -9,12 +9,43 @@ class User extends Model {
 }
 User.init(
   {
-    username: DataTypes.STRING,
-    password: DataTypes.STRING,
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    email: DataTypes.STRING,
-    state: DataTypes.STRING,
+    username: {
+      type: DataTypes.STRING,
+      validate: {
+        isAlphanumeric: true,
+      },
+      unique: true,
+    },
+    password: {
+      type: DataTypes.STRING,
+      validate: {
+        min: 8
+      }
+    },
+    first_name: {
+      type: DataTypes.STRING,
+      validate: {
+        isAlpha: true,
+      }
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      validate: {
+        isAlpha: true,
+      }
+    },    
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: true,
+      }
+    },
+    state: {
+      type: DataTypes.STRING,
+      validate: {
+        isAlpha: true,
+      }
+    },
   },
   { sequelize, modelName: 'user', freezeTableName: true, timestamps: false }
 );

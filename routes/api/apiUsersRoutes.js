@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const newUser = await User.create(req.body).catch((err) => {
-    res.status(500).json('error creating user :(');
+    res.status(500).json(err);
   });
   req.session.save(() => {
     req.session.loggedIn = true;
@@ -32,6 +32,7 @@ router.post('/sign-in/:username', async (req, res) => {
   if (validated) {
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.username = req.params.username;
       res.status(202).json(validated);
     });
   } else {

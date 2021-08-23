@@ -1,0 +1,18 @@
+[
+    {
+        "user_id": "1",
+        "hike_id": "1"
+    },
+    {
+        "user_id": "2",
+        "hike_id": "2"
+    },
+    {
+        "user_id": "3",
+        "hike_id": "3"
+    },
+    {
+        "user_id": "4",
+        "hike_id": "4"
+    }
+]

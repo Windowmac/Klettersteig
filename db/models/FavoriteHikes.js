@@ -27,6 +27,9 @@ FavoriteHikes.init(
         unique: false,
       },
     },
+    hike_name: {
+      type: DataTypes.STRING,
+    }
   },
   { sequelize, modelName: 'favorite_hikes', timestamps: false }
 );

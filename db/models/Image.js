@@ -1,31 +1,15 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../connection');
 
-class Times extends Model {}
+class Image extends Model {}
 
-Times.init(
+Image.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      allowNull: false,
       autoIncrement: true,
-    },
-    hours: {
-      type: DataTypes.INTEGER,
-    },
-    minutes: {
-      type: DataTypes.INTEGER,
-      validate: {
-        max: 59,
-        min: 0,
-      },
-    },
-    seconds: {
-      type: DataTypes.INTEGER,
-      validate: {
-        max: 59,
-        min: 0,
-      },
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -43,8 +27,11 @@ Times.init(
         unique: false,
       },
     },
+    data: {
+        type: DataTypes.BLOB('long'),
+    }
   },
-  { sequelize, modelName: 'times', timestamps: false }
+  { sequelize, modelName: 'image', timestamps: false }
 );
 
-module.exports = Times;
+module.exports = Image;
