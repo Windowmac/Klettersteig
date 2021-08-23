@@ -1,27 +1,31 @@
+
+
+
+
 [
     {
-        "name": "multnomah hikes",
-        "discovered_by": "1",
-        "description": "the summit is cool!",
-        "length": "3.0",
-        "latitude": "14.7",
-        "longitude": "11.11"
+        "name": "Trail of Ten Falls",
+        "discovered_by": "",
+        "description": "Trail of Ten Falls is a heavily trafficked loop trail located near Mehama, Oregon that features a waterfall and is rated as moderate. The trail is primarily used for hiking.",
+        "length": "7.4",
+        "latitude": "44.87769",
+        "longitude": "-122.65544"
     },
     {
         "name": "cascadia hikes",
-        "discovered_by": "2",
-        "description": "the summit is mild!",
-        "length": "3.0",
-        "latitude": "1.7",
-        "longitude": "1.1"
+        "discovered_by": "unknown",
+        "description": "Trail of Ten Falls is aheavily trafficked loop trail located near Mehama, Oregon that is primarily used for hiking.",
+        "length": "2.1",
+        "latitude": "45.53875",
+        "longitude": "-122.21788"
     },
     {
         "name": "multnomah climbing",
         "discovered_by": "3",
-        "description": "the summit is hot!",
-        "length": "4.0",
-        "latitude": "24.7",
-        "longitude": "7.11"
+        "description": "Angel's Rest is a moderately rated heavily trafficked trail located near Corbett, Oregon It is primarily used for hiking, running, nature trips, bird watching, and best used from April until October.",
+        "length": "4.5",
+        "latitude": "45.56034",
+        "longitude": "-122.1726"
     },
     {
         "name": "multnomah trail",
