@@ -1,19 +1,54 @@
-{{#if loggedIn}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kletterstieg</title>
+<!-- materialize css cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+<!-- jquery cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- materialize js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<!-- materialize icons cdn -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../../public/css/styles.css">
+    <link type="text/css" rel="stylesheet" href="../../public/css/materialize.min.css"  media="screen,projection"/>
+<!-- map generator API -->
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/build/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/css/ol.css">
+    <link rel="stylesheet" href="../../public/css/styles.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Kletterstieg!!</a>
+          <!-- <i class="center material-icons prefix">hiking</i> -->
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="material-icons brand-logo center font-size:30px prefix">hiking</li>
+            <li><a href="#login" class="modal-trigger">Login</a></li>
+            <li><a href="#register" class="modal-trigger">Create account</a></li>
+            <li><a href="collapsible.html">Contact</a></li>
+            <div id="map" class="map"></div>
+          </ul>
+        </div>
+      </nav>
+
+</head>
+<body class="background">
 
 <div id='backgroundPic'>
-  <div class='container'>
-    <div class='row'>
-      <div class='col s6'>
-        <div class='card'>
-          <div class='card-image'>
-              <div class="carousel">
-                {{#each hikeImages}}
-                <a class="carousel-item"><img src="data:image/png;base64,{{this}}"></a>
-                {{else}}
-                <p class="none">No content</p>
-                {{/each}}
+    <div class='container'>
+      <div class='row'>
+        <div class='col s6'>
+          <div class='card'>
+            <div class='card-image'>
+              <img
+                src='https://i1.wp.com/wanderlustphotosblog.com/wp-content/uploads/2019/04/Multnomah-Falls-Trails-Map.png?resize=994%2C737&ssl=1'
+              />
             </div>
-          </div>
+            <span class='card-title'>Multnomah-Falls-Trails-Map</span>
         </div>
         <button class="searchBtn" id="favButton">
           Add this hike to favorites
@@ -74,42 +109,25 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class='container'>
-    <div class='row'>
-      <div class='col s6'>
-        <div class='card teal lighten-2'>
-          <div class='card-content white-text'>
-            <span class='card-title'><strong>{{user.username}}'s Stats</strong></span>
-            <p class='left-align'>
-              <li>User Best Time: {{userTime}}</li>
-              <li>User Rating: </li>
-              <li>Overall Rating: </li>
-            </p>
+    <div class='container'>
+      <div class='row'>
+        <div class='col s6'>
+          <div class='card teal lighten-2'>
+            <div class='card-content white-text'>
+              <span class='card-title'><strong>User Stats</strong></span>
+              <p class='left-align'>
+                <li>User Best Time: </li>
+                <li>User Rating: </li>
+                <li>Overall Rating: </li>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class='col s6'>
-        <div class='card teal lighten-2'>
-          <div class='card-content white-text'>
-            <span class='card-title'><strong>Add a Picture to the Hike!</strong></span>
-            <div>
-              <label for='hike_pic'>Add a picture of this hike: </label>
-
-              <input
-                type='file'
-                id='hike_pic'
-                name='hike_pic'
-                accept='image/png, image/jpeg'
-              />
-              <label for='pic_name'>Add a picture name: </label>
-              <input type='text' name='pic_name' id='pic_name' />
-
-              <button id='submit_pic' data-hike_id='{{hike.id}}'>Submit</button>
-              <h5><strong>OR</strong></h5>
-              <button id='favButton' data-user_id="{{user.id}}" data-hike_id="{{hike.id}}" data-hike_name="{{hike.name}}">
-                Add this hike to favorites
-              </button>
+        <div class='col s6'>
+          <div class='card teal lighten-2'>
+            <div class='card-content white-text'>
+              <span class='card-title'><strong>Suggested Hikes</strong></span>
+              <p>Suggested hikes based on difficulty/length/tags/etc</p>
             </div>
           </div>
         </div>
@@ -138,13 +156,14 @@
         </div>
     </div>
 </div>
-{{else}}
-<a href="/">Please log in to view this page</a>
-{{/if}}
-<script src='../js/hikes.js'></script>
-<script
-  src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'
-></script>
 
-
-
+  <!-- materialize modal script -->
+  <script>
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+  </script>
+  <script src='../../public/js/hikes.js'></script>
+  <script type='text/javascript' src="../../public/js/materialize.min.js"></script>
+  </body>
+</html>
