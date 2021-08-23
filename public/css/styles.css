@@ -36,4 +36,33 @@ body {
   &.liked::after {
     transform: translate(-50%, -50%) scale(1.1);
   }
+  
+  .float-child {
+      width: 50%;
+      float: left;
+      padding: 20px;
+      /* border: 2px solid red; */
+  }  
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
 }
