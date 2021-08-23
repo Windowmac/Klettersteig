@@ -77,7 +77,7 @@ const handleLogin = async (username, password) => {
   }
 };
 
-const logout = async () => {
+const handleLogout = async () => {
   const response = await fetch('/api/users/logout', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
