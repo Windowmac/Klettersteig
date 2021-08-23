@@ -11,6 +11,8 @@ const email = document.getElementById('email');
 let userLat = 0;
 let userLon = 0;
 
+// -------------------------------- Get Lat/Long Function --------------------------------
+
 navigator.geolocation.getCurrentPosition(function (position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -18,6 +20,8 @@ navigator.geolocation.getCurrentPosition(function (position) {
   userLon = lon.toFixed(2);
   console.log(`The coordinates for this location are: ${userLat}, ${userLon}`);
 });
+
+// -------------------------------- Create User Function --------------------------------
 
 submitBtn.addEventListener('click', (event) => {
   event.preventDefault();
@@ -71,6 +75,8 @@ submitBtn.addEventListener('click', (event) => {
   
 });
 
+// -------------------------------- Handle Login Function --------------------------------
+
 const handleLogin = async (username, password) => {
   const body = {
     username: username,
@@ -106,40 +112,4 @@ function openForm() {
 
 function closeForm() {
   document.getElementById('myForm').style.display = 'none';
-};
-
-// -------------------------------- Rating Function --------------------------------
-
-// Courtesy of https://codeburst.io/a-simple-star-rating-system-using-vanilla-js-css-and-html-caf1b3e4d9f1
-const ratingFunction = (data) => {
-  let el = document.getElementById(data.target.id);
-  let ratingID = parseInt(element.id);
-  let stringID = "";
-  let i = 1;
-  while (i <= ratingID) {
-    stringID = i.toString();
-    let goldColor = document.getElementById(stringID);
-    goldColor.style.color = "gold";
-    i++;
-  };
-  while (i <= 5) {
-    ratingId = i.toString();
-    let whiteColor = document.getElementById(stringID);
-    whiteColor.style.color = "white";
-    i++;
-  };
-  this.averageRating();
-};
-
-// -------------------------------- Average Rating Function --------------------------------
-
-const averageRating = () => {
-  let ratingArr = [];
-  let stars = document.getElementsByClassName("stars");
-  for (let i = 0; i < stars.length; i++) {
-    ratingArr.push(stars[i].style.color);
-  }
-  this.setState({
-    rating: ratingArr.length
-  });
 };

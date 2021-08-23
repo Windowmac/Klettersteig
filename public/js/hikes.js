@@ -124,6 +124,27 @@ addTimeButton.addEventListener('click', () => {
 
 // -------------------------------- User Rating Function --------------------------------
 
+// Courtesy of https://codeburst.io/a-simple-star-rating-system-using-vanilla-js-css-and-html-caf1b3e4d9f1
+const ratingFunction = (data) => {
+  let el = document.getElementById(data.target.id);
+  let ratingID = parseInt(element.id);
+  let stringID = "";
+  let i = 1;
+  while (i <= ratingID) {
+    stringID = i.toString();
+    let goldColor = document.getElementById(stringID);
+    goldColor.style.color = "gold";
+    i++;
+  };
+  while (i <= 5) {
+    ratingId = i.toString();
+    let whiteColor = document.getElementById(stringID);
+    whiteColor.style.color = "white";
+    i++;
+  };
+  this.averageRating();
+};
+
 const userRating = async (user) => {
   // const rating = await user.getRating
 };
@@ -132,7 +153,18 @@ addTimeButton.addEventListener('click', () => {
   userRating;
 });
 
-// -------------------------------- Overall Rating Function --------------------------------
+// -------------------------------- Average Rating Function --------------------------------
+
+const averageRating = () => {
+  let ratingArr = [];
+  let stars = document.getElementsByClassName("stars");
+  for (let i = 0; i < stars.length; i++) {
+    ratingArr.push(stars[i].style.color);
+  }
+  this.setState({
+    rating: ratingArr.length
+  });
+};
 
 const overallRating = async (user) => {
   const overallRatingEl = 0;
