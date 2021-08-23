@@ -10,6 +10,10 @@ const sunriseButton = document.getElementById("sunriseBtn");
 const sunriseEl = document.getElementById("sunrise");
 const sunsetEl = document.getElementById("sunset");
 const favButton = document.getElementById("favButton");
+const addTimeButton = document.getElementById('add-time');
+const hoursEl = document.getElementById('hours');
+const minutesEl = document.getElementById('minutes');
+const secondsEl = document.getElementById('seconds');
 
 const addHikePic = async (pic) => {
   const body = {
@@ -75,7 +79,8 @@ const addFavorite = async (userId, hikeId, hikeName) => {
   }).then((res) => res.json());
   
   if(response.id) {
-    alert(`favorite hike added!`)
+    alert(`favorite hike added!`);
+    window.location.reload();
   }
   else{ alert('trouble adding favorite');
   }
@@ -83,4 +88,32 @@ const addFavorite = async (userId, hikeId, hikeName) => {
 
 favButton.addEventListener('click', () => {
   addFavorite(favButton.dataset.user_id, favButton.dataset.hike_id, favButton.dataset.hike_name);
+});
+
+const addTime = async (userId, hikeId, hours, minutes, seconds) => {
+  const body = {
+    user_id: userId,
+    hike_id: hikeId,
+    hours: hours,
+    minutes: minutes,
+    seconds: seconds
+  }
+  const response = await fetch(`/api/hikes/${hikeId}/times`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  }).then((res) => res.json());
+  
+  if(response.id) {
+    alert(`time added!`);
+    window.location.reload();
+  }
+  else{ alert('trouble adding favorite');
+  }
+};
+
+addTimeButton.addEventListener('click', () => {
+  addTime(addTimeButton.dataset.user_id, addTimeButton.dataset.hike_id, hoursEl.value, minutesEl.value, secondsEl.value);
 });
