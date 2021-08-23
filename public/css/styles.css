@@ -185,3 +185,8 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
 }
+
+.rating > span:hover:before {
+  content: "\2605";
+  position: absolute;
+}
