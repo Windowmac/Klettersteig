@@ -1,38 +1,34 @@
-
-
-
-
 [
     {
         "name": "Trail of Ten Falls",
-        "discovered_by": "",
-        "description": "Trail of Ten Falls is a heavily trafficked loop trail located near Mehama, Oregon that features a waterfall and is rated as moderate. The trail is primarily used for hiking.",
+        "discovered_by": "June D. Drake",
+        "description": " The Trail of Ten Falls is a 7.4 mile heavily trafficked loop trail located near Mehama, Oregon that features a waterfall and is rated as moderate. The trail is primarily used for hiking.",
         "length": "7.4",
         "latitude": "44.87769",
         "longitude": "-122.65544"
     },
     {
-        "name": "cascadia hikes",
-        "discovered_by": "unknown",
-        "description": "Trail of Ten Falls is aheavily trafficked loop trail located near Mehama, Oregon that is primarily used for hiking.",
-        "length": "2.1",
-        "latitude": "45.53875",
-        "longitude": "-122.21788"
-    },
-    {
         "name": "Angel's Rest",
-        "discovered_by": "",
-        "description": "Angel's Rest is a moderately rated heavily trafficked trail located near Corbett, Oregon It is primarily used for hiking, running, nature trips, bird watching, and best used from April until October.",
+        "discovered_by": "unknown",
+        "description": "Angel's Rest is a 4.5 mile heavily trafficked out and back trail located near Corbett, Oregon that features a waterfall and is rated as moderate.",
         "length": "4.5",
         "latitude": "45.56034",
         "longitude": "-122.1726"
     },
     {
-        "name": "multnomah trail",
-        "discovered_by": "4",
-        "description": "the summit is present!",
-        "length": "1.0",
-        "latitude": "33.3",
-        "longitude": "3.33"
+        "name": "Latourell Falls Loop Trail",
+        "discovered_by": "unknown",
+        "description": "Latourell Falls Loop Trail is a 2.1 mile heavily trafficked loop trail located near Corbett, Oregon that features a waterfall and is rated as moderate.",
+        "length": "2.1",
+        "latitude": "45.53875",
+        "longitude": "-122.21788"
+    },
+    {
+        "name": "Misery Ridge and River Trail",
+        "discovered_by": "unknown",
+        "description": "Misery Ridge and River Trail is a 3.5 mile heavily trafficked loop trail located near Terrebonne, Oregon that features a river and is rated as difficult. ",
+        "length": "3.5",
+        "latitude": "44.36636",
+        "longitude": "-121.13744"
     }
 ]
