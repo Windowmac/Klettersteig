@@ -1,82 +1,140 @@
 {{#if loggedIn}}
 
-<div id='backgroundPic'>
-  <div class='container'>
-    <div class='row'>
-      <div class='col s6'>
-        <div class='card'>
-          <div class='card-image'>
-              <div class="carousel">
-                {{#each hikeImages}}
-                <a class="carousel-item"><img src="data:image/png;base64,{{this}}"></a>
-                {{else}}
-                <p class="none">No content</p>
-                {{/each}}
+  <div id='backgroundPic'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col s6'>
+          <div class='card'>
+            <div class='card-image'>
+              <img id='image' src='' />
             </div>
           </div>
         </div>
-      </div>
-      <div class='col s6'>
-        <div class='card teal lighten-2'>
-          <div class='card-content white-text'>
-            <span class='card-title'><strong>Hike Stats</strong></span>
+        <div class='col s6'>
+          <div class='card teal lighten-2'>
+            <div class='card-content white-text'>
+              <span class='card-title'><strong>{{hike.name}}</strong></span>
 
-            <li>
-              <p>
-                Sunrise at this location is at
-                <span id='sunrise'>0.00</span>, sunset is at
-                <span id='sunset'>0.00</span>.
-              </p>
-              <button
-                id='sunriseBtn'
-                data-lat='{{hike.latitude}}'
-                data-lon='{{hike.longitude}}'
-              >
-                Get sunrise and sunset hours for this location
-              </button></li>
+              <li>
+                <p>
+                  Sunrise at this location is at
+                  <span id='sunrise'>0.00</span>, sunset is at
+                  <span id='sunset'>0.00</span>.
+                </p>
+                <button
+                  id='sunriseBtn'
+                  data-lat='{{hike.latitude}}'
+                  data-lon='{{hike.longitude}}'
+                >
+                  Get sunrise and sunset hours for this location
+                </button></li>
               <li>Length: {{hike.length}} miles</li>
               {{!-- <li>Difficulty: {{userDifficulty}} </li>
               <li>Tags: {{userTags}}</li>
               <li>Overall Best Time: {{userBestTime}}</li> --}}
 
-          </div>
-          <div class='card-action'>
-            <button data-target='modal1' class='btn modal-trigger'>Recommended
-              Packing List</button>
-            <div id='modal1' class='modal'>
-              <div class='modal-content'>
-                <h4>Ten Essentials</h4>
-                <p>Navigation: map, compass, altimeter, GPS device, personal
-                  locator beacon (PLB) or satellite messenger. Headlamp: plus
-                  extra batteries. Sun protection: sunglasses, sun-protective
-                  clothes and sunscreen. First aid including foot care and
-                  insect repellent (as needed). Knife plus a gear repair kit.
-                  Fire matches, lighter, tinder and/or stove. Shelter carried at
-                  all times (can be a light emergency bivy). Extra food Beyond
-                  the minimum expectation. Extra water Beyond the minimum
-                  expectation. Extra clothes Beyond the minimum expectation</p>
+            </div>
+            <div class='card-action'>
+              <button data-target='modal1' class='btn modal-trigger'>Recommended
+                Packing List</button>
+              <div id='modal1' class='modal'>
+                <div class='modal-content'>
+                  <h4>Ten Essentials</h4>
+                  <p>Navigation: map, compass, altimeter, GPS device, personal
+                    locator beacon (PLB) or satellite messenger. Headlamp: plus
+                    extra batteries. Sun protection: sunglasses, sun-protective
+                    clothes and sunscreen. First aid including foot care and
+                    insect repellent (as needed). Knife plus a gear repair kit.
+                    Fire matches, lighter, tinder and/or stove. Shelter carried
+                    at all times (can be a light emergency bivy). Extra food
+                    Beyond the minimum expectation. Extra water Beyond the
+                    minimum expectation. Extra clothes Beyond the minimum
+                    expectation</p>
+                </div>
+                <div class='modal-footer'>
+                  <a
+                    class='modal-action modal-close waves-effect waves-light btn view'
+                    href='#modal1'
+                  >OK</a>
+                </div>
               </div>
-              <div class='modal-footer'>
-                <a
-                  class='modal-action modal-close waves-effect waves-light btn view'
-                  href='#modal1'
-                >OK</a>
+              <button data-target='modal2' class='btn modal-trigger'>Things You
+                Could See</button>
+              <div id='modal2' class='modal'>
+                <div class='modal-content'>
+                  <h4>Things You Might See on Trail</h4>
+                  <p>You'll see a magnitude of critters, from owls to frogs, to
+                    deer and salamanders. You will see a few different
+                    waterfalls as well as the Columbia River and Washington
+                    State.</p>
+                </div>
+                <div class='modal-footer'>
+                  <a
+                    class='modal-action modal-close waves-effect waves-light btn view'
+                    href='#modal2'
+                  >OK</a>
+                </div>
               </div>
             </div>
-            <button data-target='modal2' class='btn modal-trigger'>Things You
-              Could See</button>
-            <div id='modal2' class='modal'>
-              <div class='modal-content'>
-                <h4>Things You Might See on Trail</h4>
-                <p>You'll see a magnitude of critters, from owls to frogs, to
-                  deer and salamanders. You will see a few different waterfalls
-                  as well as the Columbia River and Washington State.</p>
-              </div>
-              <div class='modal-footer'>
-                <a
-                  class='modal-action modal-close waves-effect waves-light btn view'
-                  href='#modal2'
-                >OK</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='container'>
+      <div class='row'>
+        <div class='col s6'>
+          <div class='card teal lighten-2'>
+            <div class='card-content white-text'>
+              <span class='card-title'><strong>{{user.username}}'s Stats</strong></span>
+              <p class='left-align'>
+                <li>Best Time:
+                  {{userTime.hours}}
+                  hrs:
+                  {{userTime.minutes}}
+                  min:
+                  {{userTime.seconds}}
+                  sec</li>
+                <li>Rating: </li>
+                <li>Overall Rating: </li>
+                <li><h4><strong>Input New Time: </strong></h4></li>
+                <li>Hrs:
+                  <input type='number' id='hours' />
+                  Min:
+                  <input type='number' id='minutes' />
+                  Sec:
+                  <input type='number' id='seconds' /></li>
+                <li><button
+                    id='add-time'
+                    data-user_id='{{user.id}}'
+                    data-hike_id='{{hike.id}}'
+                  >Add Time</button></li>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class='col s6'>
+          <div class='card teal lighten-2'>
+            <div class='card-content white-text'>
+              <span class='card-title'><strong>Add a Picture to the Hike!</strong></span>
+              <div>
+                <label for='hike_pic'>Add a picture of this hike: </label>
+
+                <input
+                  type='file'
+                  id='hike_pic'
+                  name='hike_pic'
+                  accept='image/png, image/jpeg'
+                />
+
+                <h5><strong>OR</strong></h5>
+                <button
+                  id='favButton'
+                  data-user_id='{{user.id}}'
+                  data-hike_id='{{hike.id}}'
+                  data-hike_name='{{hike.name}}'
+                >
+                  Add this hike to favorites
+                </button>
               </div>
             </div>
           </div>
@@ -84,58 +142,13 @@
       </div>
     </div>
   </div>
-  <div class='container'>
-    <div class='row'>
-      <div class='col s6'>
-        <div class='card teal lighten-2'>
-          <div class='card-content white-text'>
-            <span class='card-title'><strong>{{user.username}}'s Stats</strong></span>
-            <p class='left-align'>
-              <li>Best Time: {{userTime.hours}} hrs: {{userTime.minutes}} min: {{userTime.seconds}} sec</li>
-              <li>Rating: </li> 
-              <li>Overall Rating: </li>
-              <li><h4><strong>Input New Time: </strong></h4></li>
-              <li>Hrs: <input type="number" id="hours"> Min: <input type="number" id="minutes"> Sec: <input type="number" id="seconds"></li>
-              <li><button id="add-time" data-user_id="{{user.id}}" data-hike_id="{{hike.id}}">Add Time</button></li>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class='col s6'>
-        <div class='card teal lighten-2'>
-          <div class='card-content white-text'>
-            <span class='card-title'><strong>Add a Picture to the Hike!</strong></span>
-            <div>
-              <label for='hike_pic'>Add a picture of this hike: </label>
-
-              <input
-                type='file'
-                id='hike_pic'
-                name='hike_pic'
-                accept='image/png, image/jpeg'
-              />
-              <label for='pic_name'>Add a picture name: </label>
-              <input type='text' name='pic_name' id='pic_name' />
-
-              <button id='submit_pic' data-hike_id='{{hike.id}}'>Submit</button>
-              <h5><strong>OR</strong></h5>
-              <button id='favButton' data-user_id="{{user.id}}" data-hike_id="{{hike.id}}" data-hike_name="{{hike.name}}">
-                Add this hike to favorites
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 {{else}}
-<a href="/">Please log in to view this page</a>
+  <a href='/'>Please log in to view this page</a>
 {{/if}}
-<script src='../js/hikes.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+<script src='/js/hikes.js'></script>
+<script src='/js/uploadPic.js'></script>
 <script
   src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'
 ></script>
-
-
-
