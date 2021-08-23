@@ -19,7 +19,7 @@ router.get('/hikes/:hike_id', async (req, res) => {
 
   const hike = hikeData.get({ plain: true });
   console.log(hike);
-
+  console.log(req.session.username);
   const userData = await User.findOne({
     where: {
       username: req.session.username,
