@@ -2,7 +2,6 @@ const userName = document.getElementById('username_login');
 const password = document.getElementById('pass_login');
 const submitBtn = document.getElementById('create-btn');
 const loginBtn = document.getElementById('loginBtn');
-const logoutBtn = document.getElementById('logoutBtn');
 const createUsername = document.getElementById('username_create');
 const createPassword = document.getElementById('pass_create');
 const firstName = document.getElementById('firstName');

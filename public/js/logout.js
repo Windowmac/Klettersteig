@@ -1,3 +1,10 @@
+const logoutBtn = document.getElementById('logoutBtn');
+
+logoutBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    handleLogout();
+});
+
 const handleLogout = async () => {
     const response = await fetch('/api/users/logout', {
       method: 'POST',
@@ -9,8 +16,3 @@ const handleLogout = async () => {
       alert('Failed to log out. Please try again.');
     }
   };
-  
-  logoutBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    handleLogout();
-  });
