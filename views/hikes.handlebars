@@ -91,14 +91,12 @@
           <div class='card-content white-text'>
             <span class='card-title'><strong>{{user.username}}'s Stats</strong></span>
             <p class='left-align'>
-              <li>User Best Time: {{userTime}}</li>
-              <li>User Rating: {{userRating}} </li>
-              <li>Overall Rating: {{userAvgRating}}</li>
-
-              <div class="rating">
-              <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-              </div>
-              
+              <li>Best Time: {{userTime.hours}} hrs: {{userTime.minutes}} min: {{userTime.seconds}} sec</li>
+              <li>Rating: </li>
+              <li>Overall Rating: </li>
+              <li><h4><strong>Input New Time: </strong></h4></li>
+              <li>Hrs: <input type="number" id="hours"> Min: <input type="number" id="minutes"> Sec: <input type="number" id="seconds"></li>
+              <li><button id="add-time" data-user_id="{{user.id}}" data-hike_id="{{hike.id}}">Add Time</button></li>
             </p>
           </div>
         </div>

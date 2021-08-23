@@ -11,6 +11,10 @@ const sunriseEl = document.getElementById("sunrise");
 const sunsetEl = document.getElementById("sunset");
 const favButton = document.getElementById("favButton");
 const ratingButton = document.getElementById("ratingButton");
+const addTimeButton = document.getElementById('add-time');
+const hoursEl = document.getElementById('hours');
+const minutesEl = document.getElementById('minutes');
+const secondsEl = document.getElementById('seconds');
 
 // -------------------------------- Submit Pic Function --------------------------------
 
@@ -77,7 +81,8 @@ const addFavorite = async (userId, hikeId, hikeName) => {
   }).then((res) => res.json());
   
   if(response.id) {
-    alert(`Favorite hike added!`)
+    alert(`favorite hike added!`);
+    window.location.reload();
   }
   else{ alert('Trouble adding favorite hike.');
   }
@@ -87,8 +92,48 @@ favButton.addEventListener('click', () => {
   addFavorite(favButton.dataset.user_id, favButton.dataset.hike_id, favButton.dataset.hike_name);
 });
 
-// -------------------------------- Rating Function --------------------------------
+// -------------------------------- Add Time Function --------------------------------
+
+const addTime = async (userId, hikeId, hours, minutes, seconds) => {
+  const body = {
+    user_id: userId,
+    hike_id: hikeId,
+    hours: hours,
+    minutes: minutes,
+    seconds: seconds
+  }
+  const response = await fetch(`/api/hikes/${hikeId}/times`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  }).then((res) => res.json());
+  
+  if(response.id) {
+    alert(`time added!`);
+    window.location.reload();
+  }
+  else{ alert('trouble adding favorite');
+  }
+};
+
+addTimeButton.addEventListener('click', () => {
+  addTime(addTimeButton.dataset.user_id, addTimeButton.dataset.hike_id, hoursEl.value, minutesEl.value, secondsEl.value);
+});
+
+// -------------------------------- User Rating Function --------------------------------
 
 const userRating = async (user) => {
-  const rating = await user.getRating
+  // const rating = await user.getRating
+};
+
+addTimeButton.addEventListener('click', () => {
+  userRating;
+});
+
+// -------------------------------- Overall Rating Function --------------------------------
+
+const overallRating = async (user) => {
+  const overallRatingEl = 0;
 };
