@@ -95,9 +95,12 @@ router.get('/users/:username/:lat/:lon', async (req, res) => {
   const userState = user.state;
   const mapUrl = `https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2908734.6682857913!2d${req.params.lat}!3d${req.params.lon}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1shiking%20trails%20in%20${userState}!5e0!3m2!1sen!2sus!4v1628978922827!5m2!1sen!2sus`;
 
+  const allHikes = await Hike.findAll().catch(err => {res.status(500).json(err)});
+  const hikes = allHikes.map(hike => hike.get({ plain: true }));
   res.render('landing-page', {
     user,
     mapUrl,
+    hikes,
     loggedIn: req.session.loggedIn,
   });
 });
