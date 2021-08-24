@@ -1,6 +1,6 @@
 # **Klettersteig** *A Hiking App*
 *Steep, narrow mountain path used for climbing...a "via ferrata"!*
-![login page](public\images\KlettersteigLogIn.PNG)
+![login page](/public/images/KlettersteigLogIn.PNG)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # **Team Project**
 
@@ -34,11 +34,11 @@ As a user I want to be able to search for hikes in my area and find relevant inf
 
 ## *Wire Frame setup*
 * `login page`
-![wireframe sign-in](public\images\Klettersteig-0.PNG)
+![wireframe sign-in](/public/images/Klettersteig-0.PNG)
 * `landing page (once login has been verified)`
-![wireframe landing page](public\images\Klettersteig-1.PNG)
+![wireframe landing page](/public/images/Klettersteig-1.PNG)
 * `hikes page (results of the search feature)`
-![wireframe hike page](public\images\Klettersteig-2.PNG)
+![wireframe hike page](/public/images/Klettersteig-2.PNG)
 
 ## *Links*
 * GitHub: https://github.com/Windowmac/Klettersteig.git
