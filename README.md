@@ -9,7 +9,7 @@ Klettersteig is a hiking app which a user can search for hikes in their area, st
 # **Contributors**
 This application was the result of a fully collaborative team project. Team members include Danielle T., Andy W., Erik S., Mckendree S., and Sean R. 
 
-![3 page view](public\images\thumbnail.jpg)
+![3 page view](/public/images/thumbnail.jpg)
 
 # **Start**
 Use this command in an integrated terminal to start the application:
