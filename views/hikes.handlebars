@@ -1,7 +1,6 @@
 {{#if loggedIn}}
-<!-- like button icon -->
-    {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+{{!-- <body onload="sunsetAndRise()"> --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   <div id='backgroundPic'>
     <div class='container'>
       <div class='row'>
@@ -17,7 +16,7 @@
             <div class='card-content white-text'>
               <span class='card-title'><strong>{{hike.name}}</strong></span>
 
-              {{!-- <li>
+              <li>
                 <p>
                   Sunrise at this location is at
                   <span id='sunrise' data-lat='{{hike.latitude}}'>0.00</span>, sunset is at
@@ -29,14 +28,13 @@
                   data-lon='{{hike.longitude}}'>
                   Get sunrise and sunset hours for this location
                 </button>
-              </li> --}}
-                <li>Sunrise at this location is at
-                <span id='sunsetAndRise(userLat, userLong)' data-lat='{{hike.latitude}}'>0.00</span>.</li><br>
-                <li>Sunset is at
-                <span id='sunsetAndRise(userLat, userLong)' data-lon='{{hike.longitude}}'>0.00</span>.</li>
-              <li>Length: {{hike.length}} miles</li>
-
-              <script type = "text/javascript" src="function.js"></script>  
+              </li>
+              
+              {{!-- <li>Sunrise at this location is at
+              <span id='sunrise' data-lat='{{hike.latitude}}'>0.00</span>.</li>
+              <li>Sunset is at
+              <span id='sunset' data-lon='{{hike.longitude}}'>0.00</span>.</li>
+              <li>Length: {{hike.length}} miles</li> --}}
 
               {{!-- <li>Difficulty: {{userDifficulty}} </li>
               <li>Tags: {{userTags}}</li>

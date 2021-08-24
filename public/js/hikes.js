@@ -17,8 +17,8 @@ const secondsEl = document.getElementById('seconds');
 
 // Sunrise/sunset API courtesy of https://sunrise-sunset.org/api
 const sunsetAndRise = (userLat, userLong) => {
-  userLat = userLat.dataset.lat;
-  userLong = userLong.dataset.long;
+  // userLat = userLat.dataset.lat;
+  // userLong = userLong.dataset.long;
   fetch(`https://api.sunrise-sunset.org/json?lat=${userLat}lng=${userLong}`)
   .then(function (response) {
     if (response.status === 404) {
